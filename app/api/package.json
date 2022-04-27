@@ -89,7 +89,7 @@
     "mongoose": "^6",
     "mongoose-paginate-v2": "^1",
     "mqemitter-redis": "^4",
-    "node-fetch": "^2",
+    "node-fetch": "^3",
     "nodemailer": "^6",
     "nunjucks": "^3",
     "otplib": "^12",
