@@ -70,7 +70,7 @@
     "async": "^3",
     "await-to-js": "^3",
     "awilix": "^7",
-    "chalk": "^4",
+    "chalk": "^5",
     "commander": "^9",
     "cookie": "^0",
     "env-schema": "^4",
