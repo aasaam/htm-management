@@ -11,7 +11,7 @@ module.exports = {
     browser: false,
     node: true,
   },
-  plugins: ['sql', 'sonarjs', 'node', 'security', 'prettier'],
+  plugins: ['sonarjs', 'node', 'security', 'prettier'],
   extends: [
     'plugin:node/recommended',
     'plugin:sonarjs/recommended',
@@ -21,19 +21,5 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': 'error',
-    'sql/format': [
-      2,
-      {
-        ignoreExpressions: false,
-        ignoreInline: true,
-        ignoreTagless: true,
-      },
-    ],
-    'sql/no-unsafe-query': [
-      2,
-      {
-        allowLiteral: false,
-      },
-    ],
   },
 };
