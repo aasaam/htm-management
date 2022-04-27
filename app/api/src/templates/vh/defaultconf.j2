@@ -1,0 +1,12 @@
+  ############
+  # Defaults #
+  ############
+  # > essential server defaults
+  include /usr/local/openresty/nginx/defaults/server_include_defaults.conf;
+
+  # > or with custom access lua you will need
+  # include /usr/local/openresty/nginx/defaults/server_include_defaults_no_lua.conf;
+  # access_by_lua {
+  #   -- essential access check
+  #   require "access_normal"
+  # }

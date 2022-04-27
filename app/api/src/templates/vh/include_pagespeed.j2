@@ -1,0 +1,13 @@
+{% if vh.pageSpeed === 'none' %}
+  # > A: disable
+  pagespeed off;
+{% elif vh.pageSpeed === 'profile1' %}
+  pagespeed on;
+  pagespeed Domain $http_host;
+  include /usr/local/openresty/nginx/defaults/page_speed_profile_1.conf;
+{% elif vh.pageSpeed === 'profile2' %}
+  pagespeed on;
+  pagespeed Domain $http_host;
+  include /usr/local/openresty/nginx/defaults/page_speed_profile_2.conf;
+
+{% endif %}

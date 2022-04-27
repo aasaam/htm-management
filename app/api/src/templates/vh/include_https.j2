@@ -1,0 +1,61 @@
+#########
+# HTTPS #
+#########
+server {
+  listen 443 ssl http2;
+
+  server_name {% for item in vh.host %} {{ item }}{% endfor %};
+
+  {% if vh.orgTitle %}set $organization_title '{{vh.orgTitle}}';
+  {% else %}set $organization_title 'Sample Organization';
+  {% endif %}
+
+  {% if vh.orgIcon %}set $organization_brand_icon '{{vh.orgIcon}}';
+  {% else %}set $organization_brand_icon 'ir_aasaam';
+  {% endif %}
+
+{% if vh.agentCheck %}
+  ########################
+  # Modern browser check #
+  ########################
+  {% include "./include_browser_check.j2" %}
+  {% endif %}
+
+{% if vh.protection %}
+  ############################
+  # Auth Request: Protection #
+  ############################
+{% include "./include_protection.j2" %}
+{% endif%}
+
+{% include "./defaultconf.j2" %}
+
+{% if vh.wafMode | length %}
+  #########
+  # naxsi #
+  #########
+{% include "./include_wafMode.j2" %}
+{% endif %}
+
+{% if vh.certificate | length %}
+  #######
+  # SSL #
+  #######
+{% include "./include_cert.j2" %}
+{% endif %}
+
+{% include "./include_extraconf.j2" %}
+
+{% if vh.pageSpeed | length %}
+  #############
+  # PageSpeed #
+  #############
+{% include "./include_pagespeed.j2" %}
+{% endif %}
+
+{# Start Loop through all the location #}
+{% if vh.location %}
+{% include "./include_location.j2" %}
+{% endif %}
+{# END of Loop through all location #}
+}

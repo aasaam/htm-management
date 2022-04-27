@@ -1,0 +1,18 @@
+{% if vh.keepAliveRq | length %}
+  keepalive_requests {{ vh.keepAliveRq }};
+{% endif %}
+# {% if vh.keepAliveTimeout | length %}
+#   keepalive_timeout {{ vh.keepAliveTimeout }}s;
+# {% endif %}
+{% if vh.requestPoolSize %}
+  request_pool_size {{ vh.requestPoolSize }}k;
+{% endif %}
+{% if vh.clientHeaderTimeout %}
+  client_header_timeout {{ vh.clientHeaderTimeout }}s;
+{% endif %}
+{% if vh.clientHeaderBufferSize %}
+  client_header_buffer_size {{ vh.clientHeaderBufferSize }}k;
+{% endif %}
+{% if vh.largeClientHeaderBufferSize or vh.largeClientHeaderBufferNumber %}
+  large_client_header_buffers {% if vh.largeClientHeaderBufferNumber %} {{ vh.largeClientHeaderBufferNumber }} {% else %}4{% endif %} {% if vh.largeClientHeaderBufferSize %} {{ vh.largeClientHeaderBufferSize }}k {% else %}8k {% endif %};
+{% endif %}

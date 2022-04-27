@@ -1,0 +1,91 @@
+# protection enabled
+set_if_empty $protection_enable '1';
+
+{% if protection.protectionSupportedLang %}
+set $protection_config_supported_languages '{{ protection.protectionSupportedLang.join(',') }}';
+{% endif %}
+
+{% if protection.protectionI18nOrgTitle %}
+set $protection_config_org_title ' {{ protection.protectionI18nOrgTitle | dump | safe }} ';
+{% endif %}
+
+{%- if protection.country | length -%}
+# comma separated iso country 'IR,US'
+set_if_empty $protection_acl_countries '{{ protection.country|join(',') }}';
+{% endif %}
+
+{%- if protection.cidr | length -%}
+# comma separated network cidr like '127.0.0.0/8,192.168.0.0/16'
+set_if_empty $protection_acl_cidrs '{{ protection.cidr|join(',') }}';
+{% endif %}
+
+{%- if protection.asn | length -%}
+# comma separated asn like: '15169,13414,32934'
+set_if_empty $protection_acl_asns '{{ protection.asn|join(',') }}';
+{% endif %}
+
+
+{%- if protection.asnRange | length -%}
+# set asn range for example: '61952-62463,15169-13413'
+set_if_empty $protection_acl_asn_ranges '{{ protection.asnRange|join(',') }}';
+{% endif %}
+
+
+{%- if protection.clientToken | length -%}
+# json object key is organization name and value is the key
+# Sample value is '{"client-verified-sample-name":"this-is-long-random-token"}'
+set_if_empty $protection_acl_api_keys '{{protection.clientToken | dump | safe }}';
+{% endif %}
+
+
+{% if protection.protectionDefaultLang  %}
+set_if_empty $protection_config_lang '{{ protection.protectionDefaultLang}}';
+{% endif %}
+
+
+# small string
+set_if_empty $protection_config_cookie 'aasaam_protection';
+
+{% if protection.challenge | length %}
+{% if protection.challenge == 'ldap' %}
+# > If LDAP:
+
+set $protection_config_challenge 'ldap';
+set $protection_config_ldap_url '{{ protection.ldapUri }}';
+set $protection_config_ldap_readonly_username '{{ protection.ldapRoUsername }}';
+set $protection_config_ldap_readonly_password '{{ protection.ldapRoPassword }}';
+set $protection_config_ldap_base_dn '{{ protection.ldapBaseDn }}';
+set $protection_config_ldap_filter '{{ protection.ldapFilter }}';
+set $protection_config_ldap_attributes '{{ protection.ldapAttributes | safe }}';
+set $protection_config_ttl '{{ protection.protectionConfigTtl }}';
+set $protection_config_timeout '{{ protection.protectionConfigTimeout }}';
+set $protection_config_captcha_difficulty '{{protection.captchaDifficulty}}';
+set $protection_config_wait '{{protection.protectionConfigWaitToSolve}}';
+
+{% elif protection.challenge == 'js' %}
+# > If JS:
+set $protection_config_challenge 'js';
+set $protection_config_ttl '{{ protection.protectionConfigTtl }}';
+set $protection_config_timeout '{{ protection.protectionConfigTimeout }}';
+set $protection_config_wait '{{protection.protectionConfigWaitToSolve}}';
+
+{% elif protection.challenge == 'totp' %}
+# > If TOTP:
+set $protection_config_challenge 'totp';
+set $protection_config_totp_secret '{{ protection.totpSecret }}';
+set $protection_config_ttl '{{ protection.protectionConfigTtl }}';
+set $protection_config_timeout '{{ protection.protectionConfigTimeout }}';
+set $protection_config_wait '{{protection.protectionConfigWaitToSolve}}';
+
+{% elif protection.challenge == 'captcha' %}
+# > If CAPTCHA:
+set $protection_config_challenge 'captcha';
+set $protection_config_captcha_difficulty '{{protection.captchaDifficulty}}';
+set $protection_config_ttl '{{ protection.protectionConfigTtl }}';
+set $protection_config_timeout '{{ protection.protectionConfigTimeout }}';
+set $protection_config_wait '{{protection.protectionConfigWaitToSolve}}';
+
+
+{% endif %}
+
+{% endif %}

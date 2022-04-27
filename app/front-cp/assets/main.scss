@@ -1,0 +1,31 @@
+// please do not decorate main theme
+
+.v-data-table {
+  line-height: 2.6em !important;
+  .v-input .v-label {
+    line-height: 18px !important;
+  }
+}
+
+:root .v-application .elevation-8 {
+  box-shadow: 0 3px 11px 0 #d1d4f1, 0 3px 3px -2px rgba(161, 161, 161, 0.1),
+    0 1px 8px 0 rgba(138, 137, 137, 0.1) !important;
+}
+
+.v-list-item .v-list-item__title,
+.v-list-item .v-list-item__subtitle {
+  line-height: 1.8 !important;
+}
+
+.v-input .v-label {
+  line-height: 19px !important;
+}
+.v-messages__wrapper {
+  .v-messages__message {
+    line-height: 15px !important;
+  }
+}
+
+.v-tabs a {
+  letter-spacing: 0 !important;
+}

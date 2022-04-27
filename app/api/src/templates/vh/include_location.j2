@@ -1,0 +1,96 @@
+  #########
+  # Proxy #
+  #########
+{% for item in vh.location %}
+{# redirect location #}
+{% if item.locationType === 'redirect' %}
+  location {{ item.path }} {
+    return {{ item.redirectStatus }} {{ item.redirectToUrl }};
+  }
+{% endif %}
+
+{# proxy location #}
+{% if item.locationType === 'proxy' %}
+  location {{ item.path }} {
+
+{% if item.aclProfile | length %}
+    # > acl
+    if ( $htm_acl_{{item.aclProfile.name}} = 0 ) {
+      return 403;
+    }
+{% endif %}
+
+{% if item.activeProtection %}
+    # has protection active
+    auth_request /.well-known/protection/auth;
+  {% endif %}
+
+    # > pass headers to proxy backend
+    include /usr/local/openresty/nginx/defaults/location_proxy_headers.conf;
+
+{% if item.waf %}
+  {% if vh.pageSpeed === 'none' %}
+  # > without page speed
+    include /usr/local/openresty/nginx/defaults/location_naxsi.conf;
+    {% else %}
+  # > with page speed
+    include /usr/local/openresty/nginx/defaults/location_naxsi_page_speed.conf;
+  {% endif %}
+  # > extra rules
+    include /usr/local/openresty/nginx/addon/naxi/rules_{{item.waf}}.conf;
+{% endif %}
+
+{% if item.standardCache %}
+    #########
+    # Cache #
+    #########
+    proxy_buffering on;
+    proxy_cache PROXYCACHE;
+    proxy_cache_use_stale error timeout invalid_header updating http_500 http_502 http_503 http_504;
+    proxy_cache_valid 200 302 10m;
+    proxy_cache_valid 404 1m;
+    more_set_headers "X-Aasaam-Cache-Status: $upstream_cache_status";
+  {% endif %}
+
+{% if item.clientMaxBodySize %}
+    # > upload size
+    client_max_body_size {{item.clientMaxBodySize}}M;
+{% endif %}
+{% if item.clientBodyBufferSize%}
+    client_body_buffer_size {{item.clientBodyBufferSize}}M;
+{% endif %}
+
+{% if item.headers | length %}
+    # > add header
+{% for h in item.headers %}
+    more_set_headers "{{ h.key }}: {{ h.value }}" ;
+{% endfor %}
+{% endif %}
+
+{% if item.proxyHeaders | length %}
+    # > add proxy header
+{% for ph in item.proxyHeaders %}
+    proxy_set_header "{{ ph.key }}" "{{ ph.value }}";
+{% endfor %}
+{% endif %}
+
+
+{% if item.proxySchema === 'http' %}
+    # > A: proxy http (LAN or trusted network)
+    include /usr/local/openresty/nginx/defaults/location_proxy_http.conf;
+  {% if item.upstreamProfile %}
+  proxy_pass http://{{item.upstreamProfile.name}};
+  {% endif %}
+{% elif item.proxySchema === 'https'%}
+    # > B: proxy https insecure [Bad practice]
+    include /usr/local/openresty/nginx/defaults/location_proxy_https_insecure.conf;
+  {% if item.upstreamProfile %}
+  proxy_pass https://{{item.upstreamProfile.name}};
+  {% endif %}
+{% endif %}
+
+  }
+  {# end of location proxy #}
+{% endif %}
+
+{% endfor %}

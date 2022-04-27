@@ -1,0 +1,10 @@
+{% if acl %}
+#######
+# ACL #
+#######
+
+{% for item in acl %}
+include  /usr/local/openresty/nginx/addon/acl/acl_{{item.name}}_{{item.id}}.conf;
+{% endfor %}
+{%endif %}
+

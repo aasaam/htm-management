@@ -1,0 +1,12 @@
+  include /usr/local/openresty/nginx/defaults/server_http2_default.conf;
+
+  ssl_certificate /usr/local/openresty/nginx/addon/ssl/ssl_{{vh.certificate}}_fullchain.pem;
+  ssl_certificate_key /usr/local/openresty/nginx/addon/ssl/ssl_{{vh.certificate}}_privkey.pem;
+  ssl_trusted_certificate /usr/local/openresty/nginx/addon/ssl/ssl_{{vh.certificate}}_chain.pem;
+  ssl_stapling off;
+  ssl_stapling_verify off;
+
+{% if vh.alwaysServeHttp %}
+  # > comment out if you sure want to serve always https
+  more_set_headers 'Strict-Transport-Security: max-age=63072000';
+{% endif %}

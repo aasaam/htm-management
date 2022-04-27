@@ -1,0 +1,9 @@
+{% if upstream %}
+############
+# Upstream #
+############
+{% for item in upstream %}
+include  /usr/local/openresty/nginx/addon/upstream/upstream_{{item}}.conf;
+{% endfor %}
+{%endif %}
+

@@ -1,0 +1,42 @@
+{% if upstream.advance == 1 %} upstream {{upstream.name}} {
+    {{ upstream.advancedBody|safe }}
+}
+{% else %}
+upstream  {{ upstream.name }}  {
+{% if upstream.loadBalanceMethod | length %}
+  {% if upstream.loadBalanceMethod == 'HI' %}
+  ip_hash;
+  {% elif upstream.loadBalanceMethod == 'CO' %}
+  hash $uid_got$uid_set consistent;
+  {% else %}
+  # default is Round Robin
+  {% endif %}
+{% endif %}
+
+{%if upstream.serverList | length %}
+  {% for item in upstream.serverList %}
+
+    server {{ item.server }}{% if item.port %}:{{item.port}}{% endif %}{% if item.weight %}  weight={{ item.weight }}{% endif %}{% if item.down %} down{% endif %}{% if item.maxFails %} max_fails={{item.maxFails}} {% endif %}{% if item.failTimeout %} fail_timeout={{item.failTimeout}}s {% endif %}{% if item.maxConnection %} max_conns={{item.maxConnection}}{%endif %};
+  {% endfor %}
+{% endif %}
+
+{% if upstream.keepalive %}
+    # keepalive connections - default: __
+    keepalive {{upstream.keepalive}};
+  {% endif %}
+  {% if upstream.keepalive -%}
+    # keepalive_requests number - default: 1000
+    keepalive_requests {{upstream.keepalive}};
+  {% endif %}
+  {% if upstream.keepaliveTime -%}
+    # keepalive_time time - default: 1h
+    keepalive_time {{upstream.keepaliveTime}}h;
+  {% endif %}
+  {% if upstream.keepAliveTimeout -%}
+    # keepalive_timeout timeout - default: 60s
+    keepalive_timeout {{upstream.keepaliveTime}}s;
+  {% endif %}
+
+
+}
+{% endif %}

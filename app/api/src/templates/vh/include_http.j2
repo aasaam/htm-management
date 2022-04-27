@@ -1,0 +1,21 @@
+########
+# HTTP #
+########
+server {
+
+  listen 80;
+  server_name {% for item in vh.host %} {{ item }}{% endfor %};
+
+  include /usr/local/openresty/nginx/defaults/server_include_defaults.conf;
+
+  ###############################
+  # /.well-known/acme-challenge #
+  ###############################
+  include /usr/local/openresty/nginx/defaults/server_acme.conf;
+
+
+  location / {
+    return 301 https://$host$request_uri;
+  }
+
+}

@@ -1,0 +1,8 @@
+  include /usr/local/openresty/nginx/defaults/server_protection.configure.conf;
+  include /usr/local/openresty/nginx/addon/protection/protection_{{vh.protection}}.conf;
+
+  # > Protection Directive
+  set $protection_config_unauthorized_status 488;
+  include /usr/local/openresty/nginx/defaults/http_custom_errors.conf;
+  error_page 488 = @error488;
+  include /usr/local/openresty/nginx/defaults/server_protection_488_js.conf;

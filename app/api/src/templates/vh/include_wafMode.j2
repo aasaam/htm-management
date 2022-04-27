@@ -1,0 +1,10 @@
+{% if vh.wafMode == 'learning' %}
+  # > for learning
+  include /usr/local/openresty/nginx/defaults/server_naxsi_learning.conf;
+{% elif vh.wafMode == 'debug'%}
+  # > for testing using cookie setup
+  include /usr/local/openresty/nginx/defaults/server_naxsi_debug.conf;
+{% elif vh.wafMode == 'active'%}
+  # > for apply waf
+  include /usr/local/openresty/nginx/defaults/server_naxsi_apply.conf;
+{% endif%}

@@ -1,0 +1,50 @@
+# Copyright(c) 2021 aasaam software development group
+version: "3"
+
+services:
+  # backend
+  htm-backend:
+    depends_on:
+      - htm-mongo
+      - htm-redis
+    container_name: htm-backend
+    build:
+      args:
+        - PROXY_HTTP=${PROXY_HTTP:-}
+      context: .
+      dockerfile: Dockerfile.backend
+    working_dir: /app/api
+    environment:
+      ASM_PUBLIC_APP_TEST: "false"
+
+  # front and nginx
+  htm-web:
+    depends_on:
+      - htm-backend
+    container_name: htm-web
+    build:
+      args:
+        - PROXY_HTTP=${PROXY_HTTP:-}
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - 80:80
+    environment:
+      ASM_NGINX_WORKER_PROCESSES: ${ASM_NGINX_WORKER_PROCESSES:-2}
+      ASM_NGINX_WORKER_RLIMIT_NOFILE: ${ASM_NGINX_WORKER_RLIMIT_NOFILE:-1024}
+      ASM_NGINX_WORKER_CONNECTIONS: ${ASM_NGINX_WORKER_CONNECTIONS:-512}
+      ASM_NGINX_ERROR_LOG_LEVEL: ${ASM_NGINX_ERROR_LOG_LEVEL:-warn}
+      ASM_NGINX_TMPFS_CACHE_SIZE_MB: ${ASM_NGINX_TMPFS_CACHE_SIZE_MB:-128}
+      ASM_APP_PORT: ${ASM_APP_PORT:-3001}
+      ASM_PUBLIC_BASE_URL: ${ASM_PUBLIC_BASE_URL:-/}
+    tmpfs:
+      - /nginx-tmpfs:rw,nodev,nosuid,noexec,noatime,size=${ASM_NGINX_TMPFS_CACHE_SIZE_MB:-192}m
+
+  # databases
+  htm-redis:
+    container_name: htm-redis
+    image: redis:6
+
+  htm-mongo:
+    container_name: htm-mongo
+    image: mongo:4

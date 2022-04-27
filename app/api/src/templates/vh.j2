@@ -1,0 +1,12 @@
+{% if vh.advance == 1 %}
+  {{ vh.advancedBody|safe }}
+{% else %}
+{# IF HTTP #}
+{% include "./vh/include_http.j2" %}
+{# END OF HTTP #}
+
+{# IF HTTPS #}
+{% include "./vh/include_https.j2" %}
+{# END OF HTTPS #}
+
+{% endif %}

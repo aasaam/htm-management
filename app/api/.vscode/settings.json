@@ -1,0 +1,5 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "cSpell.words": ["awilix", "gomplates", "tmpl"],
+  "editor.formatOnSave": true
+}

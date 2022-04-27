@@ -1,0 +1,6 @@
+geo $htm_acl_{{ acl.name}} {
+  default  {{ acl.mood }};
+{% for item in acl.list %}
+  {{ item }} {% if acl.mood == 1 %}0{% else %}1{% endif %};
+{% endfor %}
+}

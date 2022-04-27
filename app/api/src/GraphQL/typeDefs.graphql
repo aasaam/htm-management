@@ -1,0 +1,670 @@
+# https://github.com/Urigo/graphql-scalars
+scalar BigInt
+scalar Byte
+scalar Currency
+scalar Date
+scalar DateTime
+scalar Duration
+scalar EmailAddress
+scalar GUID
+scalar HexColorCode
+scalar HSL
+scalar HSLA
+scalar IPv4
+scalar IPv6
+scalar ISBN
+scalar JSON
+scalar JSONObject
+scalar LocalDate
+scalar LocalEndTime
+scalar LocalTime
+scalar Long
+scalar MAC
+scalar NegativeFloat
+scalar NegativeInt
+scalar NonEmptyString
+scalar NonNegativeFloat
+scalar NonNegativeInt
+scalar NonPositiveFloat
+scalar NonPositiveInt
+scalar ObjectID
+scalar PhoneNumber
+scalar Port
+scalar PositiveFloat
+scalar PositiveInt
+scalar PostalCode
+scalar RGB
+scalar RGBA
+scalar SafeInt
+scalar Time
+scalar UnsignedFloat
+scalar UnsignedInt
+scalar URL
+scalar USCurrency
+scalar UtcOffset
+scalar UUID
+scalar Void
+
+# custom
+
+input InputGlobalList {
+  filter: JSON = {}
+  sort: JSON = {}
+  page: Int = 1
+  limit: Int = 1
+}
+
+input InputGlobalId {
+  id: String!
+}
+
+# ********** User *************
+input InputForgotPassword {
+  email: EmailAddress!
+}
+
+input InputUpdatePasswordUser {
+  id: String!
+  newPassword: String!
+  currentPassword: String
+}
+
+input InputUserAdd {
+  password: String!
+  roles: [String]!
+  email: EmailAddress
+  active: Boolean
+}
+
+input InputEditUser {
+  id: String!
+  email: EmailAddress
+  roles: [String]
+  active: Boolean
+}
+
+input InputDeleteUser {
+  id: String!
+}
+
+input InputOtpGenerate {
+  id: String!
+  currentPassword: String
+}
+
+input InputProfileUser {
+  id: String!
+}
+
+type OutputUserData {
+  id: String
+  email: String
+}
+
+type OutputUserListDocs {
+  _id: String
+  email: EmailAddress
+  roles: [String]
+  active: Boolean
+}
+
+type OutputUserList {
+  docs: [OutputUserListDocs]
+  totalDocs: Int
+  limit: Int
+  pagingCounter: Int
+  totalPages: Int
+  page: Int
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+}
+
+type OutputProfileUser {
+  id: String
+  email: EmailAddress
+  roles: [String]
+  active: Boolean
+  otpSecret: String
+}
+
+# ************* Auth **********
+
+input InputUserList {
+  filter: JSON = {}
+  sort: JSON = {}
+  page: Int = 1
+  limit: Int = 1
+}
+
+# ************* Node **********
+input InputNodeAdd {
+  ip: IPv4!
+  nodeToken: String!
+  nodeId: String!
+  tlsVersion: String
+  port: String
+}
+
+input InputNodeEdit {
+  id: String!
+  nodeId: String!
+  ip: IPv4
+  nodeToken: String
+  tlsVersion: String
+  port: String
+  deleted: Boolean
+}
+
+input InputNodeDelete {
+  id: String!
+}
+
+type OutputSingleNode {
+  id: String
+  ip: IPv4
+  nodeId: String
+  nodeToken: String
+  port: String
+  tlsVersion: String
+  deleted: Boolean
+}
+
+type OutputNodeListDocs {
+  id: String
+  ip: IPv4
+  nodeId: String
+  nodeToken: String
+  tlsVersion: String
+  port: String
+  deleted: Boolean
+}
+
+type OutputNodeList {
+  docs: [OutputNodeListDocs]
+  totalDocs: Int
+  limit: Int
+  pagingCounter: Int
+  totalPages: Int
+  page: Int
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+}
+
+# ************* Certificate **********
+input InputCertAdd {
+  name: String!
+  fullChain: String!
+  privateKey: String!
+  chain: String!
+}
+
+type OutputCertListDocs {
+  _id: String
+  name: String
+  issuer: String
+  sigalg: String
+  sans: [String]
+  notAfter: Date
+  deleted: Boolean
+}
+type OutputCertificateList {
+  docs: [OutputCertListDocs]
+  totalDocs: Int
+  limit: Int
+  pagingCounter: Int
+  totalPages: Int
+  page: Int
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+}
+
+type OutputSingleCert {
+  id: String
+  name: String
+  issuer: String
+  sigalg: String
+  sans: [String]
+  notAfter: Date
+  deleted: Boolean
+}
+
+input InputCertEdit {
+  id: String!
+  name: String
+  fullChain: String
+  privateKey: String
+  chain: String
+  deleted: Boolean
+}
+
+# ************* Upstream **********
+input UpStreamServerField {
+  server: String
+  port: String
+  weight: Int
+  maxConnection: Int
+  maxFails: Int
+  failTimeout: Int
+  backup: Boolean
+  down: Boolean
+}
+
+type OutputUpstrServerField {
+  server: String
+  port: String
+  weight: Int
+  maxConnection: Int
+  maxFails: Int
+  failTimeout: Int
+  backup: Boolean
+  down: Boolean
+}
+
+input InputUpstream {
+  id: String
+  advance: Int!
+  name: String!
+  serverList: [UpStreamServerField]
+  loadBalanceMethod: String
+  keepalive: Int
+  keepaliveTime: Int
+  keepAliveRq: Int
+  keepAliveTimeout: Int
+  advancedBody: String
+  deleted: Boolean
+}
+
+type OutputSingleUpstream {
+  _id: String
+  advance: Int
+  name: String
+  serverList: [OutputUpstrServerField]
+  loadBalanceMethod: String
+  keepalive: Int
+  keepaliveTime: Int
+  keepAliveRq: Int
+  keepAliveTimeout: Int
+  advancedBody: String
+  deleted: Boolean
+}
+
+type OutputUpStrListDocs {
+  _id: String
+  advance: Int
+  name: String
+  loadBalanceMethod: String
+  deleted: Boolean
+}
+
+type OutputUpstreamList {
+  docs: [OutputUpStrListDocs]
+  totalDocs: Int
+  limit: Int
+  pagingCounter: Int
+  totalPages: Int
+  page: Int
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+}
+
+# ************* Protection **********
+input InputProtection {
+  id: String
+  name: String!
+  country: [String!]
+  cidr: [String]
+  asn: [String]
+  asnRange: [String]
+  clientToken: JSONObject
+  protectionDefaultLang: String!
+  protectionSupportedLang: [String!]
+  protectionI18nOrgTitle: JSONObject
+  protectionConfigTtl: Int
+  protectionConfigTimeout: Int
+  protectionConfigWaitToSolve: Int
+  challenge: String!
+  captchaDifficulty: String
+  ldapUri: String
+  ldapRoUsername: String
+  ldapRoPassword: String
+  ldapBaseDn: String
+  ldapFilter: String
+  ldapAttributes: [String]
+  deleted: Boolean
+}
+
+type OutputProtectionListDocs {
+  _id: String
+  name: String
+  challenge: String
+  deleted: Boolean
+}
+
+type OutputProtectionList {
+  docs: [OutputProtectionListDocs]
+  totalDocs: Int
+  limit: Int
+  pagingCounter: Int
+  totalPages: Int
+  page: Int
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+}
+
+type OutputSingleProtection {
+  id: String!
+  name: String!
+  country: [String!]
+  cidr: [String]
+  asn: [String]
+  asnRange: [String]
+  clientToken: JSONObject
+  protectionDefaultLang: String!
+  protectionSupportedLang: [String!]
+  protectionI18nOrgTitle: JSONObject
+  protectionConfigTtl: Int
+  protectionConfigTimeout: Int
+  protectionConfigWaitToSolve: Int
+  challenge: String!
+  captchaDifficulty: String
+  ldapUri: String
+  ldapRoUsername: String
+  ldapRoPassword: String
+  ldapBaseDn: String
+  ldapFilter: String
+  ldapAttributes: [String]
+  deleted: Boolean
+}
+
+# ************* Acl **********
+input InputAclAdd {
+  name: String!
+  mood: Int!
+  list: [String]!
+}
+
+type OutputSingleAcl {
+  id: String
+  name: String
+  mood: Int
+  list: [String]
+  deleted: Boolean
+}
+
+input InputAclEdit {
+  id: String!
+  name: String
+  mood: Int
+  list: [String]
+  deleted: Boolean
+}
+
+type OutputAclListDocs {
+  _id: String
+  name: String
+  mood: String
+  list: [String]
+  deleted: Boolean
+}
+
+type OutputListAcl {
+  docs: [OutputAclListDocs]
+  totalDocs: Int
+  limit: Int
+  pagingCounter: Int
+  totalPages: Int
+  page: Int
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+}
+
+# ************* Waf **********
+input inputAddWafList {
+  name: String!
+  rule: String!
+  description: String
+}
+
+input InputWafAdd {
+  profileName: String!
+  list: [inputAddWafList]!
+}
+
+input InputWafEdit {
+  id: String!
+  profileName: String
+  list: [inputAddWafList]
+  deleted: Boolean
+}
+
+type OutputSingleWafList {
+  name: String
+  rule: String
+  description: String
+}
+
+type OutputSingleWaf {
+  _id: String
+  profileName: String
+  list: [OutputSingleWafList]
+  deleted: Boolean
+}
+
+type OutputWafListDocs {
+  _id: String
+  profileName: String
+  deleted: Boolean
+}
+
+type OutputListWaf {
+  docs: [OutputWafListDocs]
+  totalDocs: Int
+  limit: Int
+  pagingCounter: Int
+  totalPages: Int
+  page: Int
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+}
+
+# ************* Vh **********
+input VhLocationField {
+  path: String!
+  locationType: String!
+  redirectStatus: String
+  redirectToUrl: String
+  upstreamProfile: ObjectID
+  activeProtection: Boolean
+  waf: String
+  aclProfile: String
+  proxySchema: String
+  clientMaxBodySize: Int
+  clientBodyBufferSize: Int
+  standardCache: Boolean
+  headers: [JSONObject]
+  proxyHeaders: [JSONObject]
+}
+
+input InputVh {
+  id: String
+  name: String!
+  advance: Int!
+  certificate: ObjectID
+  protection: String
+  advancedBody: String
+  host: [String]
+  alwaysServeHttp: Boolean
+  orgTitle: String
+  orgIcon: String
+  agentCheck: String
+  keepAliveRq: Int
+  keepAliveTimeout: Int
+  requestPoolSize: Int
+  clientHeaderTimeout: Int
+  clientHeaderBufferSize: Int
+  largeClientHeaderBufferSize: Int
+  largeClientHeaderBufferNumber: Int
+  wafMode: String
+  pageSpeed: String
+  location: [VhLocationField]
+  deleted: Boolean
+}
+
+type OutputServerListDocs {
+  _id: String
+  name: String
+  advance: Int
+  certificate: Int
+  deleted: Boolean
+}
+
+type OutputListServer {
+  docs: [OutputServerListDocs]
+  totalDocs: Int
+  limit: Int
+  pagingCounter: Int
+  totalPages: Int
+  page: Int
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+}
+
+type VhLocationFieldSingle {
+  path: String
+  locationType: String
+  redirectStatus: String
+  redirectToUrl: String
+  upstreamProfile: ObjectID
+  activeProtection: Boolean
+  waf: String
+  aclProfile: String
+  proxySchema: String
+  clientMaxBodySize: Int
+  clientBodyBufferSize: Int
+  standardCache: Boolean
+  headers: [JSONObject]
+  proxyHeaders: [JSONObject]
+}
+
+type OutputSingleVh {
+  _id: String
+  name: String
+  advance: Int
+  certificate: ObjectID
+  protection: String
+  advancedBody: String
+  host: [String]
+  alwaysServeHttp: Boolean
+  orgTitle: String
+  orgIcon: String
+  agentCheck: String
+  keepAliveRq: Int
+  keepAliveTimeout: Int
+  requestPoolSize: Int
+  clientHeaderTimeout: Int
+  clientHeaderBufferSize: Int
+  largeClientHeaderBufferSize: Int
+  largeClientHeaderBufferNumber: Int
+  wafMode: String
+  pageSpeed: String
+  location: [VhLocationFieldSingle]
+  deleted: Boolean
+}
+
+# ************* setting **********
+input InputSetting {
+  name: String!
+}
+
+input InputSettingEdit {
+  name: String!
+  value: String!
+}
+input inputConfigReader {
+  name: String!
+}
+
+# ************* template **********
+input TemplateConf {
+  type: String!
+  id: String
+  dataModel: JSONObject
+}
+
+# ************* backup/restore **********
+input InputRestore {
+  file: String!
+}
+
+type Notification {
+  message: String
+}
+
+# Query list
+type Query {
+  Ping: String
+  ConfigReader(data: inputConfigReader): DateTime
+  ListUser(args: InputUserList): OutputUserList
+  ForgotPasswordUser(data: InputForgotPassword): String
+  ProfileUser(data: InputProfileUser): OutputProfileUser
+  HealthNode(data: InputNodeAdd): JSON
+  InfoNode(data: InputNodeAdd): JSON
+  ApplyNode: [JSON]
+  RestartNode: [JSON]
+  SingleNode(data: InputGlobalId): OutputSingleNode
+  ListNode(args: InputGlobalList): OutputNodeList
+  ListCertificate(args: InputGlobalList): OutputCertificateList
+  SingleCertificate(data: InputGlobalId): OutputSingleCert
+  SingleUpstream(data: InputGlobalId): OutputSingleUpstream
+  ListUpstream(args: InputGlobalList): OutputUpstreamList
+  ProfileOtpGenerator: String
+  ListProtection(args: InputGlobalList): OutputProtectionList
+  SingleProtection(data: InputGlobalId): OutputSingleProtection
+  SingleAcl(data: InputGlobalId): OutputSingleAcl
+  ListAcl(args: InputGlobalList): OutputListAcl
+  SingleWaf(data: InputGlobalId): OutputSingleWaf
+  ListWaf(args: InputGlobalList): OutputListWaf
+  ListVh(args: InputGlobalList): OutputListServer
+  SingleVh(data: InputGlobalId): OutputSingleVh
+  Setting(data: InputSetting): String
+  RenderConfig(data: TemplateConf): String
+  Backup: String
+  Restore(data: InputRestore): Boolean
+  notifications: [Notification]
+}
+
+# Mutation list
+type Mutation {
+  AddUser(data: InputUserAdd): OutputUserData
+  EditUser(data: InputEditUser): OutputUserData
+  OtpGenerate(data: InputOtpGenerate): String
+  UpdateUserPassword(data: InputUpdatePasswordUser): String
+  DeleteUser(data: InputDeleteUser): OutputUserData
+  AddNode(data: InputNodeAdd): String
+  EditNode(data: InputNodeEdit): String
+  DeleteNode(data: InputNodeDelete): String
+  AddCertificate(data: InputCertAdd): String
+  DeleteCertificate(data: InputGlobalId): String
+  EditCertificate(data: InputCertEdit): String
+  AddUpstream(data: InputUpstream): String
+  DeleteUpstream(data: InputGlobalId): String
+  EditUpstream(data: InputUpstream): String
+  AddProtection(data: InputProtection): String
+  EditProtection(data: InputProtection): String
+  DeleteProtection(data: InputGlobalId): String
+  AddAcl(data: InputAclAdd): String
+  DeleteAcl(data: InputGlobalId): String
+  EditAcl(data: InputAclEdit): String
+  AddWaf(data: InputWafAdd): String
+  DeleteWaf(data: InputGlobalId): String
+  EditWaf(data: InputWafEdit): String
+  AddVh(data: InputVh): String
+  DeleteVh(data: InputGlobalId): String
+  EditVh(data: InputVh): String
+  UpdateSetting(data: InputSettingEdit): String
+}
+
+# subscription list
+type Subscription {
+  SubSetting: String
+}

@@ -1,0 +1,41 @@
+# Copyright(c) 2022 aasaam software development group
+FROM node:18-bullseye-slim AS frontend
+
+ADD app/front-cp /app/frontend
+
+ARG PROXY_HTTP
+
+ARG ASM_BUILD_DEFAULT_LOCALE
+ARG ASM_BUILD_SUPPORTED_LOCALES
+
+ENV ASM_BUILD_DEFAULT_LOCALE=$ASM_BUILD_DEFAULT_LOCALE
+ENV ASM_BUILD_SUPPORTED_LOCALES=$ASM_BUILD_SUPPORTED_LOCALES
+
+RUN export DEBIAN_FRONTEND=noninteractive ; \
+  export LANG=en_US.utf8 ; \
+  export LC_ALL=C.UTF-8 ; \
+  export ASM_BUILD_DEFAULT_LOCALE=${ASM_BUILD_DEFAULT_LOCALE:-en} ; \
+  export ASM_BUILD_SUPPORTED_LOCALES=${ASM_BUILD_SUPPORTED_LOCALES:-en,fa} ; \
+  apt-get update -y \
+  && apt-get autoremove -y \
+  && apt-get -y upgrade && apt-get install -y --no-install-recommends build-essential ca-certificates \
+  && echo 'cache = "/tmp/npm"' > /root/.npmrc \
+  && npm -g update
+
+RUN cd /app/frontend \
+  && npm install --force \
+  && npm run htm-manifest \
+  && npm run make \
+  && ls -lah dist
+
+FROM nginx:1
+
+COPY --from=frontend /app/frontend/dist /web-app
+ADD nginx/cert-local /cert
+ADD nginx/nginx.conf /etc/nginx/nginx.conf
+ADD nginx/mime.types /etc/nginx/mime.types
+ADD nginx/common-http.conf /etc/nginx/common-http.conf
+ADD nginx/common-server.conf /etc/nginx/common-server.conf
+ADD nginx/common-proxy.conf /etc/nginx/common-proxy.conf
+ADD nginx/common-protected.conf /etc/nginx/common-protected.conf
+ADD nginx/templates/default.prod.conf.template /etc/nginx/templates/default.conf.template

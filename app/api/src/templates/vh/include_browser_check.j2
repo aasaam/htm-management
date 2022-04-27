@@ -1,0 +1,10 @@
+{% if vh.agentCheck == 'none' %}
+# > A: Only latest version of Firefox and Chrome is acceptable as modern browsers
+  # set $agent_check_is_modern '1';
+  # > B: or also accept the crawlers
+  # set $agent_is_modern_or_crawler '1';
+  {% elif vh.agentCheck == 'is_modern' %}
+set $agent_check_is_modern '1';
+  {% elif vh.agentCheck == 'modern_or_crawler' %}
+set $agent_is_modern_or_crawler '1';
+{% endif %}
