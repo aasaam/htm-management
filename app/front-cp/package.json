@@ -42,7 +42,7 @@
     "iso-language-codes": "^1",
     "lodash": "^4",
     "lodash.debounce": "^4.0",
-    "prettier": "^2.5",
+    "prettier": "^2.6",
     "validator": "^13",
     "vee-validate": "^3",
     "vuex-persist": "^3.1"
