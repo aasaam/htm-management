@@ -1,4 +1,4 @@
-const IoRedis = require('ioredis');
+const IoRedis = require('ioredis').default;
 const mqredis = require('mqemitter-redis');
 
 class Redis {
@@ -37,7 +37,9 @@ class Redis {
         db: 2,
         keyPrefix: `${this.ns}:mqe:`,
       });
-      await new Promise((r) => setTimeout(r, 100));
+      await new Promise((r) => {
+        setTimeout(r, 100);
+      });
       this.connection = new IoRedis(this.uri, {
         db: 1,
         lazyConnect: true,

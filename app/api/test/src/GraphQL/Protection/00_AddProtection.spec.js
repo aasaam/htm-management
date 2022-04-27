@@ -32,7 +32,9 @@ describe(__filename.replace(__dirname, ''), () => {
   });
 
   afterAll(async () => {
-    await new Promise((r) => setTimeout(r, 100));
+    await new Promise((r) => {
+      setTimeout(r, 100);
+    });
     await container.dispose();
   });
 
