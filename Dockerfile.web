@@ -1,5 +1,5 @@
 # Copyright(c) 2022 aasaam software development group
-FROM node:18-bullseye-slim AS frontend
+FROM node:16-bullseye-slim AS frontend
 
 ADD app/front-cp /app/frontend
 
