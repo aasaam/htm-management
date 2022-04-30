@@ -29,7 +29,7 @@
     "@aasaam/information": "^0",
     "@aasaam/noto-font": "^0",
     "@babel/eslint-parser": "^7.17",
-    "@mdi/font": "^6.5",
+    "@mdi/font": "^6.6",
     "@nuxtjs/eslint-config": "^8.0",
     "@nuxtjs/eslint-module": "^3.0",
     "@nuxtjs/vuetify": "^1.12",
@@ -44,7 +44,7 @@
     "lodash.debounce": "^4.0",
     "prettier": "^2.5",
     "validator": "^13",
-    "vee-validate": "^3",
+    "vee-validate": "^4",
     "vuex-persist": "^3.1"
   }
 }
