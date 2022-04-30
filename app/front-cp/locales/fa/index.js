@@ -50,6 +50,7 @@ module.exports = {
   sortBy: 'مرتب سازی بر اساس',
   protectionI18nOrgTitleRequired: 'نام سازمان را وارد کنید',
   synced: 'مطابقت داده شده',
+  editUser: 'ویرایش کاربر',
   // rest of the variables
 
   success: {

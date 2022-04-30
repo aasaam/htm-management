@@ -25,6 +25,7 @@ RUN export DEBIAN_FRONTEND=noninteractive ; \
 RUN cd /app/frontend \
   && npm install --force \
   && npm run htm-manifest \
+  && npm run htm-favicon \
   && npm run make \
   && ls -lah dist
 

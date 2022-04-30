@@ -36,6 +36,7 @@ module.exports = {
   deleted: 'Deleted',
   totpSetting: 'TOTP Config',
   synced: 'Synced',
+  otp: 'OTP',
 
   // Special Errors
   protectionI18nOrgTitleRequired: 'Protection Organization Title is required.',
