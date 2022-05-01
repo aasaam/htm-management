@@ -8,3 +8,13 @@ export default ({ store }) => {
     modules: ['user', 'helper', 'setting'],
   }).plugin(store);
 };
+
+// export default ({ store }) => {
+//   window.onNuxtReady(() => {
+//     new VuexPersistence({
+//       storage: window.localStorage,
+//       key: '_persistStates',
+//       modules: ['user', 'helper', 'setting'],
+//     }).plugin(store);
+//   });
+// };

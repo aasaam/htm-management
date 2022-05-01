@@ -119,7 +119,7 @@ export default {
   // },
 
   build: {
-    transpile: ['vuex-persist'],
+    // transpile: ['vuex-persist'],
     extend(config, { isClient }) {
       // Extend only webpack config for client-bundle
       if (isClient) {
