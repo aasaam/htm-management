@@ -43,11 +43,12 @@ services:
       ASM_FRONT_CP_PORT: ${ASM_FRONT_CP_PORT:-3000}
       ASM_FRONT_CP_PATH: ${ASM_FRONT_CP_PATH:-_cp}
       ASM_ACCESS_LOG_COMMENT: ${ASM_ACCESS_LOG_COMMENT:-}
+      ASM_PUBLIC_APP_LANG: ${ASM_PUBLIC_APP_LANG:-fa}
     tmpfs:
       - /nginx-tmpfs:rw,nodev,nosuid,noexec,noatime,size=${ASM_NGINX_TMPFS_CACHE_SIZE_MB:-192}m
     volumes:
       - ./nginx/templates/default.prod.conf.template:/etc/nginx/templates/default.conf.template
-      - ./app/front-cp/dist:/web-app
+      # - ./app/front-cp/dist:/web-app
 
   # databases
   htm-redis:
