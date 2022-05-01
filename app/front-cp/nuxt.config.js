@@ -63,7 +63,10 @@ export default {
   },
 
   css: ['@aasaam/noto-font/dist/font-face.css', '~/assets/main.scss'],
-  plugins: [{ src: '~/plugins/vuex-persist.js' }, '~/plugins/vee-validate.js'],
+  plugins: [
+    { src: '~/plugins/vuex-persist.js', ssr: false },
+    '~/plugins/vee-validate.js',
+  ],
 
   components: {
     dirs: [
@@ -116,6 +119,7 @@ export default {
   // },
 
   build: {
+    transpile: ['vuex-persist'],
     extend(config, { isClient }) {
       // Extend only webpack config for client-bundle
       if (isClient) {
