@@ -5,17 +5,9 @@ ADD app/front-cp /app/frontend
 
 ARG PROXY_HTTP
 
-ARG ASM_BUILD_DEFAULT_LOCALE
-ARG ASM_BUILD_SUPPORTED_LOCALES
-
-ENV ASM_BUILD_DEFAULT_LOCALE=$ASM_BUILD_DEFAULT_LOCALE
-ENV ASM_BUILD_SUPPORTED_LOCALES=$ASM_BUILD_SUPPORTED_LOCALES
-
 RUN export DEBIAN_FRONTEND=noninteractive ; \
   export LANG=en_US.utf8 ; \
   export LC_ALL=C.UTF-8 ; \
-  export ASM_BUILD_DEFAULT_LOCALE=${ASM_BUILD_DEFAULT_LOCALE:-en} ; \
-  export ASM_BUILD_SUPPORTED_LOCALES=${ASM_BUILD_SUPPORTED_LOCALES:-en,fa} ; \
   apt-get update -y \
   && apt-get autoremove -y \
   && apt-get -y upgrade && apt-get install -y --no-install-recommends build-essential ca-certificates \
