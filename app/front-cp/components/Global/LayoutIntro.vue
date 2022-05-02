@@ -3,7 +3,11 @@
     <v-row align="center" justify="center">
       <v-col cols="12">
         <p
-          class="grey--text text--darken-3 display-1 text-center justify-center pb-5"
+          :class="
+            $vuetify.theme.dark
+              ? 'grey--text text--lighten-3 display-1 text-center justify-center pb-5'
+              : 'grey--text text--darken-3 display-1 text-center justify-center pb-5'
+          "
         >
           {{ $t('projectDescription') }}
         </p>

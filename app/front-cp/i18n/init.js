@@ -2,7 +2,7 @@ import { resolve } from 'path';
 
 export const defaultLocale = process.env.ASM_BUILD_DEFAULT_LOCALE
   ? process.env.ASM_BUILD_DEFAULT_LOCALE
-  : 'fa';
+  : 'en';
 
 export const supportedLocales = process.env.ASM_BUILD_SUPPORTED_LOCALES
   ? process.env.ASM_BUILD_SUPPORTED_LOCALES.trim()
