@@ -29,6 +29,7 @@
           {{ $t('configTextShow') }}
         </div>
 
+        <!-- {{ data }} -->
         <GlobalEditor :code="data" :readonly="true" />
       </v-card-text>
 

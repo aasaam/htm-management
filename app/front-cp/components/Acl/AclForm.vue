@@ -39,8 +39,8 @@
                     :error-messages="errors"
                     row
                   >
-                    <v-radio :label="$t('whiteList')" :value="1"></v-radio>
-                    <v-radio :label="$t('blackList')" :value="0"></v-radio>
+                    <v-radio :label="$t('whiteList')" :value="0"></v-radio>
+                    <v-radio :label="$t('blackList')" :value="1"></v-radio>
                   </v-radio-group>
                 </ValidationProvider>
               </v-col>

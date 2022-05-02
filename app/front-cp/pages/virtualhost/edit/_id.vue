@@ -73,7 +73,6 @@ export default {
       }
 
       if (this.vh.location) {
-        console.log('this.vh.location', this.vh.location);
         this.vh.location.forEach((element) => {
           if (element.headers == null) {
             element.headers = [];

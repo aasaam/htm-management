@@ -30,7 +30,7 @@ services:
     container_name: htm-web
     ports:
       - 80:80
-      - 443:433
+      - 443:443
     environment:
       ASM_NGINX_WORKER_PROCESSES: ${ASM_NGINX_WORKER_PROCESSES:-2}
       ASM_NGINX_WORKER_RLIMIT_NOFILE: ${ASM_NGINX_WORKER_RLIMIT_NOFILE:-1024}

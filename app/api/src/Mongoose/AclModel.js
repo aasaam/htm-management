@@ -18,7 +18,7 @@ const aclSchema = new Schema(
       type: Schema.Types.String,
     },
 
-    // 0 means blacklist, 1 means whitelist
+    // 0 means whitelist, 1 means black
     mood: {
       type: Schema.Types.Number,
       required: true,

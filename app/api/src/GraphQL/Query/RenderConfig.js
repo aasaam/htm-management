@@ -24,6 +24,7 @@ module.exports = async (_, { data }, { container, token }) => {
     return UpstreamTemplateRepository.render(dataModel);
   }
   if (type === 'vh') {
+    // console.log(dataModel);
     return VhTemplateRepository.render(dataModel, true);
   }
   if (type === 'acl') {

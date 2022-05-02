@@ -80,7 +80,10 @@ class ListVh {
   }
 
   async findSingleForRender(id) {
-    return this.ServerModel.findOne({ deleted: false, id }).populate([
+    return this.ServerModel.findOne({
+      deleted: false,
+      _id: id,
+    }).populate([
       {
         path: 'location',
         populate: {
@@ -94,7 +97,7 @@ class ListVh {
         populate: {
           path: 'aclProfile',
           model: 'Acl',
-          select: ['name', 'id'],
+          select: ['name', 'id', 'mood'],
         },
       },
     ]);

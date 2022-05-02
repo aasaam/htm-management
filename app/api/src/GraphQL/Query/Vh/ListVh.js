@@ -71,4 +71,14 @@ module.exports = async (_, { args }, { container, token }, info) => {
     page,
     limit,
   });
+
+  // const a = await ListVhRepository.getVhList({
+  //   query,
+  //   selected,
+  //   sort,
+  //   page,
+  //   limit,
+  // });
+
+  // console.log(a);
 };

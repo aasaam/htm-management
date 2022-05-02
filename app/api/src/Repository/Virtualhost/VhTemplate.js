@@ -18,7 +18,8 @@ class VhTemplate {
   async render(vhModel, populate = false) {
     let res = vhModel;
     if (populate) {
-      res = await this.listVh.findSingleForRender(vhModel.id);
+      // eslint-disable-next-line no-underscore-dangle
+      res = await this.listVh.findSingleForRender(vhModel._id);
     }
 
     return new Promise((resolve) => {

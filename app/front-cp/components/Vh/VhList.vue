@@ -27,7 +27,7 @@
           itemsPerPageText: $t('itemsPerPage'),
         }"
         :options.sync="options"
-        :header-props="{ sortByText: `${$t('sortBy')}` }"
+        :header-props="{ sortByText: $t('sortBy') }"
         @update:options="optionsChanged"
       >
         <template v-if="generalAction.deletable" v-slot:top>
@@ -125,6 +125,7 @@
               mdi-delete
             </v-icon>
           </template>
+
           <v-icon
             tag="button"
             class="mr-1 ml-1"
@@ -232,6 +233,7 @@ export default {
     },
 
     async forViewer(detail) {
+      console.log(detail);
       const id = detail._id;
       const result = await this.$store.dispatch('vh/list/singleVh', id);
       if (result) {

@@ -261,6 +261,21 @@ export default {
         if (newVh.host) {
           newVh.host = this.manipulateList(newVh.host);
         }
+
+        Object.keys(newVh).forEach((key) => {
+          if (newVh[key] === null) {
+            delete newVh[key];
+          }
+          if (newVh.wafMode === 'disable' && newVh.location.length > 0) {
+            newVh.location.forEach((item) => {
+              item.waf = null;
+            });
+          }
+
+          if (this.vh.protection === '1') {
+            newVh.protection = null;
+          }
+        });
       }
 
       if (newVh.advance === 1) {
@@ -269,22 +284,7 @@ export default {
         delete newVh.schema;
       }
 
-      Object.keys(newVh).forEach((key) => {
-        if (newVh[key] === null) {
-          delete newVh[key];
-        }
-        if (newVh.wafMode === 'disable') {
-          newVh.location.forEach((item) => {
-            item.waf = null;
-          });
-        }
-
-        if (this.vh.protection === '1') {
-          newVh.protection = null;
-        }
-      });
-
-      if (newVh.location) {
+      if (newVh && newVh.location) {
         newVh.location.forEach((item) => {
           Object.keys(item).forEach((key) => {
             if (item.aclProfile === '1') {
@@ -293,8 +293,6 @@ export default {
             if (item[key] === null) {
               delete item[key];
             }
-
-            console.log('9999', item.aclProfile);
           });
         });
       }

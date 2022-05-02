@@ -15,7 +15,7 @@
 
 {% if item.aclProfile | length %}
     # > acl
-    if ( $htm_acl_{{item.aclProfile.name}} = 0 ) {
+    if ( $htm_acl_{{item.aclProfile.name}} = {{ item.aclProfile.mood }} ) {
       return 403;
     }
 {% endif %}
