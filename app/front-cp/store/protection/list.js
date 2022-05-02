@@ -18,6 +18,14 @@ export const getters = {
         challenge: item.challenge,
       };
     });
+
+    // add none to list
+    list.unshift({
+      name: 'none',
+      id: '1',
+      challenge: '',
+    });
+
     return list;
   },
 };

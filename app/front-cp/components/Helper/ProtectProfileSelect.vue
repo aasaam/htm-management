@@ -43,13 +43,13 @@ export default {
   name: 'ProtectProfileSelect',
   props: {
     protection: {
-      type: String,
+      type: [String, null],
       default: '',
       required: true,
     },
     required: {
       type: Boolean,
-      required: true,
+      required: false,
       default: false,
     },
   },

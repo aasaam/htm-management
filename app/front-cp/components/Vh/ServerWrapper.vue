@@ -278,14 +278,23 @@ export default {
             item.waf = null;
           });
         }
+
+        if (this.vh.protection === '1') {
+          newVh.protection = null;
+        }
       });
 
       if (newVh.location) {
         newVh.location.forEach((item) => {
           Object.keys(item).forEach((key) => {
+            if (item.aclProfile === '1') {
+              item.aclProfile = null;
+            }
             if (item[key] === null) {
               delete item[key];
             }
+
+            console.log('9999', item.aclProfile);
           });
         });
       }

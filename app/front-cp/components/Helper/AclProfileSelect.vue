@@ -29,7 +29,7 @@ export default {
   name: 'AclProfileSelect',
   props: {
     acl: {
-      type: String,
+      type: [String, null],
       default: '',
       required: true,
     },

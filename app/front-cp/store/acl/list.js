@@ -18,6 +18,11 @@ export const getters = {
       };
     });
 
+    list.unshift({
+      name: 'none',
+      id: '1',
+    });
+
     return list;
   },
 };

@@ -25,7 +25,7 @@ const globalApply = {
         if (isActive()) {
           this.$store.dispatch('setting/all/readSetting');
         }
-      }, 2 * 60 * 1000);
+      }, 9000);
     },
   },
 };

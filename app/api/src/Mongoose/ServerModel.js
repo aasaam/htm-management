@@ -127,6 +127,7 @@ const serverSchema = new Schema(
       require: false,
       type: Schema.Types.ObjectId,
       ref: 'Protection',
+      nullable: true,
     },
 
     location: {
@@ -181,6 +182,7 @@ const serverSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: 'Acl',
         require: false,
+        nullable: true,
       },
 
       // http | https

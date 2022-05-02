@@ -60,6 +60,10 @@ export default {
         this.vh.host = c.join('\n');
       }
 
+      if (this.vh.protection === null) {
+        this.vh.protection = '1';
+      }
+
       if (this.vh.advance === 1) {
         Object.keys(this.vh).forEach((key) => {
           if (this.vh[key] === null) {
@@ -69,12 +73,17 @@ export default {
       }
 
       if (this.vh.location) {
+        console.log('this.vh.location', this.vh.location);
         this.vh.location.forEach((element) => {
           if (element.headers == null) {
             element.headers = [];
           }
           if (element.proxyHeaders == null) {
             element.proxyHeaders = [];
+          }
+
+          if (element.aclProfile == null) {
+            element.aclProfile = '1';
           }
         });
       }

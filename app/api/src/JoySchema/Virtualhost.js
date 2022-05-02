@@ -166,9 +166,13 @@ const base = Joi.object().keys({
     'string.base': errorConstMerge.INVALID_PAGE_SPEED,
   }),
 
-  protection: Joi.string().custom(isValidObjectId).optional().messages({
-    'string.custom': errorConstMerge.INVALID_OBJECTID,
-  }),
+  protection: Joi.string()
+    .custom(isValidObjectId)
+    .optional()
+    .allow(null, '')
+    .messages({
+      'string.custom': errorConstMerge.INVALID_OBJECTID,
+    }),
 
   location: Joi.array()
     .items(
@@ -226,9 +230,12 @@ const base = Joi.object().keys({
           'string.custom': errorConstMerge.INVALID_OBJECTID,
         }),
 
-        aclProfile: Joi.string().custom(isValidObjectId).messages({
-          'string.custom': errorConstMerge.INVALID_OBJECTID,
-        }),
+        aclProfile: Joi.string()
+          .custom(isValidObjectId)
+          .allow(null, '')
+          .messages({
+            'string.custom': errorConstMerge.INVALID_OBJECTID,
+          }),
 
         clientMaxBodySize: Joi.number()
           .integer()
