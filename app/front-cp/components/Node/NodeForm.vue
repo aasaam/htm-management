@@ -131,6 +131,7 @@ export default {
       required: false,
       default: () => ({
         port: '9199',
+        tlsVersion: 'intermediate',
       }),
     },
     title: {

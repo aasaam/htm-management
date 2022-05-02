@@ -15,7 +15,7 @@ const routingFn = {
             name: namedRoute,
           }),
         );
-      }, 1100);
+      }, 900);
     },
   },
 };

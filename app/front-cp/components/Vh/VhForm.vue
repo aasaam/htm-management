@@ -29,10 +29,7 @@
               />
             </v-col>
             <v-col cols="12" md="6" lg="4">
-              <ProtectProfileSelect
-                :protection.sync="vh.protection"
-                :required="requiredF"
-              />
+              <ProtectProfileSelect :protection.sync="vh.protection" />
             </v-col>
             <v-col cols="12" md="6" lg="4">
               <PageSpeedSelect

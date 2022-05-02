@@ -14,11 +14,7 @@ const protectionSchema = new Schema(
       type: Schema.Types.String,
       require: true,
       unique: true,
-      validate: {
-        validator(c) {
-          return /[a-z][a-z0-9._]{3,31}[a-z0-9]/.test(c) && !/[._]{2,}/.test(c);
-        },
-      },
+      validate: /^[a-zA-Z][a-zA-Z0-9]{3,31}$/,
     },
 
     //  Start ACL property for protection

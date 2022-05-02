@@ -10,7 +10,11 @@ export default {
   data() {
     return {
       upstream: {
-        serverList: [{}],
+        serverList: [
+          {
+            port: '80',
+          },
+        ],
         bodyData: ``,
       },
     };

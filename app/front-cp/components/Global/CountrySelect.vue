@@ -6,7 +6,7 @@
       outlined
       :error-messages="errors"
       :success="valid"
-      item-text="nativeName"
+      item-text="name"
       item-value="alpha2Code"
       multiple
       autocomplete
@@ -15,7 +15,7 @@
     >
       <template slot="item" slot-scope="{ item }">
         <span class="pr-2">{{ item.emoji }}</span>
-        {{ item.nativeName }} ({{ item.name }})
+        {{ item.name }} ({{ item.nativeName }})
       </template>
     </v-autocomplete>
   </ValidationProvider>
