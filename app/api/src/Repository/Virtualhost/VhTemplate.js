@@ -40,7 +40,7 @@ class VhTemplate {
   }
 
   async renderToFile(vhModel) {
-    const result = await this.render(vhModel);
+    const result = await this.render(vhModel, true);
     await writeFile(
       `/app/api/addon/sites-enabled/htm_${vhModel.id}.conf`,
       result,
