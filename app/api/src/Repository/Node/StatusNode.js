@@ -182,7 +182,7 @@ class HealthNode {
   async nodeApply() {
     await this.GenerateAllTemplate.generateAllConfFile();
     const config = await this.SettingConf.getNginxConf('nginxconf');
-    console.log(config);
+
     await fs.promises.writeFile('/app/api/addon/gomplates/nginx.tmpl', config);
 
     const { stderr } = await exec(
@@ -202,17 +202,6 @@ class HealthNode {
     const node = await this.NodeModel.find({
       deleted: false,
     }).select('id ip port nodeToken nodeId');
-
-    const formData = new FormData();
-
-    const stats = fs.statSync('/tmp/addon.tar.gz');
-
-    const fileSizeInBytes = stats.size;
-    const readStream = fs.createReadStream('/tmp/addon.tar.gz');
-
-    formData.append('addon.tgz', readStream, {
-      knownLength: fileSizeInBytes,
-    });
 
     const httpsAgent = new https.Agent({
       ca: [this.RootCa],
@@ -239,6 +228,17 @@ class HealthNode {
     let mongoIdObjects = [];
     newNodeList.forEach((item) => {
       parallelItems.push((callback) => {
+        const formData = new FormData();
+
+        const stats = fs.statSync('/tmp/addon.tar.gz');
+
+        const fileSizeInBytes = stats.size;
+        const readStream = fs.createReadStream('/tmp/addon.tar.gz');
+
+        formData.append('addon.tgz', readStream, {
+          knownLength: fileSizeInBytes,
+        });
+
         formData.getHeaders = () => ({
           'Content-length': fileSizeInBytes,
           'X-Token': item.nodeToken,
@@ -258,7 +258,6 @@ class HealthNode {
           callback(null);
         };
 
-        // console.log(formData.getHeaders());
         fetch(`https://${item.ip}:${item.port}/update`, {
           method: 'POST',
           body: formData,
