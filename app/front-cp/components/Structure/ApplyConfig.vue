@@ -144,7 +144,10 @@ export default {
       this.errorLocate = {};
 
       const result = await this.$store.dispatch('node/status/restart');
-      this.resultProcess(result);
+      const re = this.resultProcess(result);
+      if (re === 'yes') {
+        this.applyBtn = false;
+      }
     },
 
     resultProcess(result) {
@@ -159,14 +162,17 @@ export default {
         this.applyBtn = false;
         this.retry = true;
         this.errorLocate = result[0].extensions.errorInfo;
+        this.$store.dispatch('setting/all/readSetting');
+        return 'no';
       } else {
         this.loading1 = false;
         this.loading2 = false;
         this.nodeResult = result;
         this.applyBtn = true;
         this.whileUpdateMode = false;
+        this.$store.dispatch('setting/all/readSetting');
+        return 'yes';
       }
-      this.$store.dispatch('setting/all/readSetting');
     },
 
     closeDialog() {

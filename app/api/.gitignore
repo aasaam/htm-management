@@ -2,4 +2,7 @@ coverage/
 node_modules/
 tmp/
 
+addon/
+
 package-lock.json
+

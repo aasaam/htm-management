@@ -49,9 +49,12 @@ class VhTemplate {
   }
 
   async renderAllVhToFile() {
+    // await exec([`cd /app/api/`, `rm -rf addon`, `mkdir addon`].join(' && '));
+
     const filePath = '/app/api/addon/sites-enabled';
     const vh = await this.listVh.findAllVh();
 
+    console.log(vh);
     const { stdout, stderr } = await exec(`rm -rf ${filePath}/htm_*.conf`);
     if (stderr) {
       throw new Error(`${stderr}`);

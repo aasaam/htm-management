@@ -282,6 +282,9 @@ export default {
         delete newVh.location;
         delete newVh.host;
         delete newVh.schema;
+        if (newVh.protection === '1') {
+          newVh.protection = null;
+        }
       }
 
       if (newVh && newVh.location) {

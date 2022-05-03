@@ -11,6 +11,7 @@ export default {
     return {
       vhId: this.$route.params.id,
       vh: {
+        agentCheck: 'none',
         advance: 0,
         location: [
           {

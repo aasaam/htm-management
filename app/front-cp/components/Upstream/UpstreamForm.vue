@@ -305,7 +305,7 @@ export default {
       }
       this.upstream.serverList.push({
         server: null,
-        port: null,
+        port: '80',
         weight: null,
         maxConnection: null,
         maxFails: null,

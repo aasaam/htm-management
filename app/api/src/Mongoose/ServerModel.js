@@ -60,7 +60,8 @@ const serverSchema = new Schema(
 
     agentCheck: {
       type: Schema.Types.String,
-      require: true,
+      require: false,
+      default: 'none',
     },
 
     keepAliveRq: {

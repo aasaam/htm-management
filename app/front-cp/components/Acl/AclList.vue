@@ -60,7 +60,7 @@
         </template>
         <template v-slot:[`item.mood`]="{ item }">
           <v-chip
-            v-if="item.mood == 0"
+            v-if="item.mood == 1"
             dark
             small
             class="ma-1"
@@ -70,7 +70,7 @@
             {{ $t('blackList') }}
           </v-chip>
           <v-chip
-            v-if="item.mood == 1"
+            v-if="item.mood == 0"
             dark
             small
             class="ma-1"

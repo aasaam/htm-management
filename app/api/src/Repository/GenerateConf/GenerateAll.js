@@ -1,3 +1,6 @@
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+
 class GenerateAll {
   constructor({
     AclTemplateRepository,
@@ -25,6 +28,28 @@ class GenerateAll {
    * @returns {Promise<Boolean>}
    */
   async generateAllConfFile() {
+    const { stderr } = await exec(
+      [
+        `cd /app/api/`,
+        `rm -rf addon`,
+        `mkdir addon`,
+        `cd addon`,
+        `mkdir acl`,
+        `mkdir ssl`,
+        `mkdir includes`,
+        `mkdir protection`,
+        `mkdir naxi`,
+        `mkdir upstream`,
+        `mkdir sites-enabled`,
+        `mkdir gomplates`,
+        `cd gomplates && mkdir sites-enabled`,
+      ].join(' && '),
+    );
+
+    if (stderr) {
+      throw new Error(`${stderr}`);
+    }
+
     // @ts-ignore
     await this.aclTemp.renderAllAclToFile();
 
@@ -32,7 +57,9 @@ class GenerateAll {
     await this.protection.renderAllProtectionToFile();
     await this.waf.renderAllWafToFile();
     await this.upstream.renderAllUpstreamToFile();
-    await this.vh.renderAllVhToFile();
+    const a = await this.vh.renderAllVhToFile();
+
+    console.log(a);
 
     return true;
   }

@@ -29,11 +29,11 @@ const listInfo = {
           items: [
             {
               name: this.$t('blackList'),
-              value: 0,
+              value: 1,
             },
             {
               name: this.$t('whiteList'),
-              value: 1,
+              value: 0,
             },
           ],
         },

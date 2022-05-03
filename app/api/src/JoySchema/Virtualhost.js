@@ -36,12 +36,14 @@ const base = Joi.object().keys({
   }),
 
   // required if advance is 1
-  advancedBody: Joi.string().when('advance', {
-    is: 1,
-    then: Joi.string().required().messages({
-      'string.empty': errorConstMerge.ISREQUIRE_FIELD,
+  advancedBody: Joi.string()
+    .allow('')
+    .when('advance', {
+      is: 1,
+      then: Joi.string().required().messages({
+        'string.empty': errorConstMerge.ISREQUIRE_FIELD,
+      }),
     }),
-  }),
 
   certificate: Joi.string().when('advance', {
     is: 0,
@@ -152,7 +154,7 @@ const base = Joi.object().keys({
       'number.min': errorConstMerge.INVALID_LARGE_CLIENT_HEADER_BUFFER_NUMBER,
     }),
 
-  alwaysServeHttp: Joi.boolean().optional().messages({
+  alwaysServeHttp: Joi.boolean().optional().allow(null).messages({
     'boolean.base': errorConstMerge.INVALID_ALWAYS_SERVE_HTTP,
   }),
 
