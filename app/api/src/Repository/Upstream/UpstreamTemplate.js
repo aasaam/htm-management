@@ -57,6 +57,7 @@ class UpstreamTemplate {
     const result = await this.getUpstreamList();
     await writeFile(`/app/api/addon/includes/0_htm_upstream.conf`, result, {
       encoding: 'utf8',
+      mode: 0o644,
     });
   }
 

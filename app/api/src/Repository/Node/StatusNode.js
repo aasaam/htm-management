@@ -182,13 +182,8 @@ class HealthNode {
   async nodeApply() {
     await this.GenerateAllTemplate.generateAllConfFile();
     const config = await this.SettingConf.getNginxConf('nginxconf');
-
-    const a = await fs.promises.writeFile(
-      '/app/api/addon/gomplates/nginx.tmpl',
-      config,
-    );
-
-    console.log(a);
+    console.log(config);
+    await fs.promises.writeFile('/app/api/addon/gomplates/nginx.tmpl', config);
 
     const { stderr } = await exec(
       [

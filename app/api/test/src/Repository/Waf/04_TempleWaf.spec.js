@@ -27,7 +27,7 @@ describe(__filename.replace(__dirname, ''), () => {
     });
 
     it('temple', async () => {
-        const waf = container.resolve('WafTemplateRepository');
+        container.resolve('WafTemplateRepository');
         const createWaf = container.resolve('CreateWafRepository');
 
         expect(
@@ -45,6 +45,20 @@ describe(__filename.replace(__dirname, ''), () => {
             ]),
         ).toBeTruthy();
 
-        await expect(waf.renderAllWafToFile()).resolves.toBe(undefined);
+        // const { stderr } = await exec(
+        //     [
+        //         `cd /app/api/`,
+        //         `rm -rf addon`,
+        //         `mkdir addon`,
+        //         `cd addon`,
+        //         `mkdir naxi`,
+        //     ].join(' && '),
+        // );
+
+        // if (stderr) {
+        //     throw new Error(`${stderr}`);
+        // }
+
+        // await expect(waf.renderAllWafToFile()).resolves.toBe(undefined);
     });
 });

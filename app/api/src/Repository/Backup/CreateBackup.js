@@ -112,7 +112,9 @@ class CreateBackup {
 
   async writeCollectionToFile(result, name) {
     const data = JSON.stringify(result);
-    await writeFile(`/tmp/backup/${name}.json`, data);
+    await writeFile(`/tmp/backup/${name}.json`, data, {
+      mode: 0o644,
+    });
   }
 
   async makeZip() {

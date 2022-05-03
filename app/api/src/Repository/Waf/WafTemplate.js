@@ -32,6 +32,7 @@ class WafTemplate {
     const result = await this.render(wafModel);
     await writeFile(`/app/api/addon/naxi/rules_${wafModel.id}.conf`, result, {
       encoding: 'utf8',
+      mode: 0o644,
     });
   }
 

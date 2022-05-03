@@ -81,6 +81,7 @@ class AclTemplate {
     const result = await this.getAclListId();
     await writeFile(`/app/api/addon/includes/0_htm_acl.conf`, result, {
       encoding: 'utf8',
+      mode: 0o644,
     });
   }
 }

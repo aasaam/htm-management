@@ -42,6 +42,7 @@ class GenerateAll {
         `mkdir upstream`,
         `mkdir sites-enabled`,
         `mkdir gomplates`,
+        `chmod 777 -R /app/api/addon`,
         `cd gomplates && mkdir sites-enabled`,
       ].join(' && '),
     );
