@@ -1,13 +1,13 @@
 <template>
   <v-menu
-    transition="slide-x-transition"
+    transition="slide-y-transition"
     right
     bottom
     offset-y
     nudge-bottom="10"
   >
     <template v-slot:activator="{ on }">
-      <v-btn icon v-on="on">
+      <v-btn text v-on="on">
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
     </template>

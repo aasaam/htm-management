@@ -96,6 +96,42 @@ export default {
           ],
         },
         {
+          action: 'mdi-timelapse',
+          title: this.$t('aclManagement'),
+          active: this.$route.path.includes('acl'),
+          items: [
+            {
+              title: this.$t('aclAdd'),
+              link: '/acl/add/',
+              canSee:
+                !!this.$store.getters['user/auth/GET_ROLE'].includes('SA'),
+            },
+            {
+              title: this.$t('aclList'),
+              link: '/acl/list/',
+              canSee: true,
+            },
+          ],
+        },
+        {
+          action: 'mdi-shield-key-outline',
+          title: this.$t('wafManagement'),
+          active: this.$route.path.includes('waf'),
+          items: [
+            {
+              title: this.$t('wafAdd'),
+              link: '/waf/add/',
+              canSee:
+                !!this.$store.getters['user/auth/GET_ROLE'].includes('SA'),
+            },
+            {
+              title: this.$t('wafList'),
+              link: '/waf/list/',
+              canSee: true,
+            },
+          ],
+        },
+        {
           action: 'mdi-toolbox-outline',
           title: this.$t('certificateManagement'),
           active: this.$route.path.includes('certificate'),
@@ -128,42 +164,6 @@ export default {
             {
               title: this.$t('protectionList'),
               link: '/protection/list/',
-              canSee: true,
-            },
-          ],
-        },
-        {
-          action: 'mdi-shield-key-outline',
-          title: this.$t('wafManagement'),
-          active: this.$route.path.includes('waf'),
-          items: [
-            {
-              title: this.$t('wafAdd'),
-              link: '/waf/add/',
-              canSee:
-                !!this.$store.getters['user/auth/GET_ROLE'].includes('SA'),
-            },
-            {
-              title: this.$t('wafList'),
-              link: '/waf/list/',
-              canSee: true,
-            },
-          ],
-        },
-        {
-          action: 'mdi-timelapse',
-          title: this.$t('aclManagement'),
-          active: this.$route.path.includes('acl'),
-          items: [
-            {
-              title: this.$t('aclAdd'),
-              link: '/acl/add/',
-              canSee:
-                !!this.$store.getters['user/auth/GET_ROLE'].includes('SA'),
-            },
-            {
-              title: this.$t('aclList'),
-              link: '/acl/list/',
               canSee: true,
             },
           ],

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mr-1 ml-1">
     <v-menu
       offset-y
       min-width="130"
@@ -22,12 +22,12 @@
           <span v-if="$i18n.locale == 'en'" class="fn-t inline-b mr-1">
             En
           </span>
-          <v-icon :size="iconSize" dark class="inline-b pr-2">
+          <v-icon :size="iconSize" dark class="inline-b pr-1">
             mdi-earth
           </v-icon>
         </v-btn>
       </template>
-      <v-list>
+      <v-list dense>
         <v-list-item
           v-for="locale in availableLocales"
           :key="locale.code"

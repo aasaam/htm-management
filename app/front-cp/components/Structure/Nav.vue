@@ -6,11 +6,11 @@
     clipped
     width="340px"
   >
-    <v-sheet class="pa-4">
-      <v-list-item-avatar>
-        <v-icon color="green" large>mdi-alarm-light-outline</v-icon>
+    <v-sheet class="d-flex pa-4">
+      <v-list-item-avatar size="48">
+        <img src="_icons/logo.svg" :alt="$t('projectDescription')" />
       </v-list-item-avatar>
-      <div>
+      <div class="pt-6 font-weight-bold">
         {{ $t('projectDescription') }}
       </div>
     </v-sheet>

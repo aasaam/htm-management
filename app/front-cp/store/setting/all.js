@@ -135,6 +135,7 @@ export const actions = {
             name1: 'lastApplyTime',
           },
         },
+        { progress: false },
       );
 
       commit('SET_APPLY_TIMES', data.data);

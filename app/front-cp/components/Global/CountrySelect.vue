@@ -10,7 +10,6 @@
       item-value="alpha2Code"
       multiple
       autocomplete
-      prepend-inner-icon="mdi-earth-plus"
       :label="$t('selectCountry')"
     >
       <template slot="item" slot-scope="{ item }">

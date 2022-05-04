@@ -11,7 +11,7 @@
     :color="$vuetify.theme.dark ? '' : 'primary'"
   >
     <v-app-bar-nav-icon @click="drawerState = !drawerState" />
-    <v-toolbar-title class="ml-0 pl-4">
+    <v-toolbar-title class="ml-0 pl-4 pr-4">
       <span class="hidden-sm-and-down"> {{ $t('projectName') }} </span>
     </v-toolbar-title>
 
@@ -19,16 +19,16 @@
       <ApplyConfig />
     </div>
     <v-spacer />
-    <v-btn :to="localePath('dashboard')" icon>
+    <v-btn text :to="localePath('dashboard')">
       <v-icon>mdi-apps</v-icon>
     </v-btn>
-    <v-btn icon @click="changeTheme">
+    <v-btn text class="ml-2 mr-1" @click="changeTheme">
       <v-icon v-if="$vuetify.theme.dark">mdi-weather-night</v-icon>
       <v-icon v-if="!$vuetify.theme.dark"> mdi-white-balance-sunny </v-icon>
     </v-btn>
 
     <template v-if="$i18n.locales.length > 1">
-      <LangSwitcher />
+      <LangSwitcher icon-size="large" />
     </template>
 
     <ToolbarMenu />
