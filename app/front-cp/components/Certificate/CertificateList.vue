@@ -63,7 +63,7 @@
             small
             label
             class="ma-1"
-            color="cyan darken-2"
+            color="grey darken-3"
           >
             {{ i }}
           </v-chip>
@@ -71,6 +71,10 @@
         <template v-slot:[`item.notAfter`]="{ item }">
           {{ item.notAfter }} - (
           {{ formatDateTime({ value: item.notAfter }) }})
+          <!-- calc how many days left -->
+          <v-chip small label class="ml-1 mr-1">
+            {{ diffDateTime({ value: item.notAfter }) }}
+          </v-chip>
         </template>
         <template v-slot:[`item.deleted`]="{ item }">
           <v-chip
@@ -111,7 +115,7 @@
             :disabled="item.deleted == true"
             tag="button"
             class="mr-1 ml-1"
-            color="error"
+            color="error darken-4"
             @click="deleteActionBtn(item)"
           >
             mdi-delete
@@ -190,7 +194,7 @@ export default {
       const date = new Date().toISOString();
 
       if (expDate <= date) {
-        return 'error darken-3 white--text';
+        return 'error lighten-1  white--text';
       }
     },
     async deleteCert() {

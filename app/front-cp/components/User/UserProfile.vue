@@ -63,7 +63,7 @@
 
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="deep-purple lighten-2" text @click="edit(profile.id)">
+      <v-btn color="warning darken-1" text @click="edit(profile.id)">
         {{ $t('edit') }}
       </v-btn>
     </v-card-actions>

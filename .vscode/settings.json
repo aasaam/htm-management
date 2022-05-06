@@ -1,5 +1,12 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["gomplates", "tmpl"]
+  "cSpell.words": [
+    "closebtn",
+    "deletable",
+    "dialogbody",
+    "gomplates",
+    "okbtn",
+    "tmpl"
+  ]
 }

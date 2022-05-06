@@ -24,6 +24,7 @@
         :server-items-length="total"
         :footer-props="{
           'items-per-page-options': [5, 10, 15],
+          itemsPerPageText: $t('itemsPerPage'),
         }"
         :options.sync="options"
         :header-props="{ sortByText: $t('sortBy') }"

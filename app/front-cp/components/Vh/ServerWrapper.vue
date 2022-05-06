@@ -18,10 +18,11 @@
         dark
         fixed-tabs
         color="white"
+        slider-size="3"
         icons-and-text
         active-class="teal darken-2"
       >
-        <v-tabs-slider></v-tabs-slider>
+        <v-tabs-slider color="amber darken-3"></v-tabs-slider>
 
         <v-tab href="#standard">
           {{ $t('standardVhost') }}

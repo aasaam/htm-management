@@ -32,7 +32,7 @@ export default function ({ app, store }) {
           error: colors.red.accent3,
           warning: colors.amber.darken3,
           info: colors.blue.darken2,
-          success: colors.green.accent3,
+          success: colors.green,
           background: '#121212',
         },
       },

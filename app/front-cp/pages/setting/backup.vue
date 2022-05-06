@@ -11,9 +11,10 @@
             color="white"
             fixed-tabs
             icons-and-text
+            slider-size="3"
             background-color="teal"
           >
-            <v-tabs-slider></v-tabs-slider>
+            <v-tabs-slider color="amber darken-3"></v-tabs-slider>
 
             <v-tab href="#tab-1">
               {{ $t('backup') }}
