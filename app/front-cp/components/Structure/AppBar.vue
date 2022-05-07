@@ -19,17 +19,16 @@
       <ApplyConfig />
     </div>
     <v-spacer />
-    <v-btn text :to="localePath('dashboard')">
+    <!-- <v-btn text :to="localePath('dashboard')">
       <v-icon>mdi-apps</v-icon>
-    </v-btn>
-    <v-btn text class="ml-2 mr-1" @click="changeTheme">
-      <v-icon v-if="$vuetify.theme.dark">mdi-weather-night</v-icon>
-      <v-icon v-if="!$vuetify.theme.dark"> mdi-white-balance-sunny </v-icon>
-    </v-btn>
-
+    </v-btn> -->
     <template v-if="$i18n.locales.length > 1">
       <LangSwitcher icon-size="large" />
     </template>
+    <v-btn text class="ml-1 mr-1" @click="changeTheme">
+      <v-icon v-if="$vuetify.theme.dark">mdi-weather-night</v-icon>
+      <v-icon v-if="!$vuetify.theme.dark"> mdi-white-balance-sunny </v-icon>
+    </v-btn>
 
     <ToolbarMenu />
   </v-app-bar>

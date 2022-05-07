@@ -15,6 +15,7 @@ const base = Joi.object().keys({
       'string.max': errorConstMerge.NAME_MAX,
       'any.required': errorConstMerge.ISREQUIRE_FIELD,
       'regex.base': errorConstMerge.INVALID_NAME_REGEX,
+      'string.pattern.base': errorConstMerge.INVALID_NAME_REGEX,
     }),
 
   mood: Joi.number().required().min(0).max(1).messages({

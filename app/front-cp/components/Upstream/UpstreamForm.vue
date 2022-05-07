@@ -7,8 +7,8 @@
           <!-- ** servers ** -->
           <v-row justify="center" align="center">
             <v-col cols="12" class="mt-4 d-flex">
-              <v-icon large>mdi-server</v-icon>
-              <span class="pl-3 pr-3 text-h5 pt-1">
+              <!-- <v-icon large>mdi-server</v-icon> -->
+              <span class="text-h5 pt-1">
                 {{ $t('addServerFields') }}
               </span>
               <v-btn
@@ -17,7 +17,7 @@
                 fab
                 elevation="0"
                 color="success"
-                class="mt-1"
+                class="mt-1 ml-2 mr-2"
                 @click.native="add"
               >
                 <v-icon> mdi-plus </v-icon>
@@ -157,6 +157,7 @@
                   elevation="0"
                   color="error"
                   class="mt-1"
+                  :disabled="upstream.serverList.length <= 1"
                   @click="remove(index)"
                 >
                   <v-icon> mdi-minus </v-icon>

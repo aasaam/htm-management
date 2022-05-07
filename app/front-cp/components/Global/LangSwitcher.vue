@@ -18,12 +18,16 @@
           :small="btnSize"
           v-on="on"
         >
-          <span v-if="$i18n.locale == 'fa'" class="fn-t inline-b"> فا </span>
+          <!-- <span v-if="$i18n.locale == 'fa'" class="fn-t inline-b"> فا </span>
           <span v-if="$i18n.locale == 'en'" class="fn-t inline-b mr-1">
             En
-          </span>
+          </span> -->
+
           <v-icon :size="iconSize" dark class="inline-b pr-1">
-            mdi-earth
+            mdi-translate
+          </v-icon>
+          <v-icon :size="iconSize" dark class="inline-b pr-1">
+            mdi-chevron-down
           </v-icon>
         </v-btn>
       </template>

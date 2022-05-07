@@ -70,7 +70,7 @@ export default {
       return [
         {
           title: this.$t('dashboard'),
-          action: 'mdi-view-dashboard',
+          action: 'mdi-view-dashboard-outline',
           link: '/dashboard',
         },
       ];
