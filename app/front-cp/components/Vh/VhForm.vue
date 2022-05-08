@@ -397,6 +397,19 @@
                     ></v-text-field>
                   </ValidationProvider>
                 </v-col>
+                <v-col cols="12" md="6" lg="3">
+                  <v-btn
+                    x-small
+                    dark
+                    fab
+                    elevation="0"
+                    color="error"
+                    class="mt-3"
+                    @click.native="deleteHeader(i, j)"
+                  >
+                    <v-icon> mdi-minus </v-icon>
+                  </v-btn>
+                </v-col>
               </v-row>
               <v-divider></v-divider>
             </v-col>
@@ -448,6 +461,19 @@
                       :label="$t('value')"
                     ></v-text-field>
                   </ValidationProvider>
+                </v-col>
+                <v-col cols="12" md="6" lg="3">
+                  <v-btn
+                    x-small
+                    dark
+                    fab
+                    elevation="0"
+                    color="error"
+                    class="mt-3"
+                    @click.native="deleteProxyHeader(i, j)"
+                  >
+                    <v-icon> mdi-minus </v-icon>
+                  </v-btn>
                 </v-col>
               </v-row>
             </v-col>
@@ -511,6 +537,12 @@ export default {
         headers: [],
         proxyHeaders: [],
       });
+    },
+    deleteHeader(i, j) {
+      this.vh.location[i].headers.splice(j, 1);
+    },
+    deleteProxyHeader(i, j) {
+      this.vh.location[i].proxyHeaders.splice(j, 1);
     },
     addHeader(index) {
       this.vh.location[index].headers.push({
