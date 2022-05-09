@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="syncDialog" scrollable max-width="1200">
     <v-card>
-      <v-card-title class="teal darken-1 headline pb-4 white--text">
+      <v-card-title class="teal accent-4 darken-1 headline pb-4 white--text">
         {{ $t('whiteList') }}
       </v-card-title>
 

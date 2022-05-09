@@ -1,7 +1,7 @@
 <template>
   <v-text-field
     v-model.number="cTtl"
-    color="light-blue darken-1"
+    color="primary"
     type="number"
     min="3600"
     max="604800"

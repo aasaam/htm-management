@@ -6,7 +6,7 @@
     persistent
   >
     <v-card>
-      <v-card-title class="teal darken-1 headline pb-4 white--text">
+      <v-card-title class="teal accent-4 darken-1 headline pb-4 white--text">
         {{ $t('nodeInfo') }}
       </v-card-title>
 

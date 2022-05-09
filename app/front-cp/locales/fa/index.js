@@ -51,7 +51,7 @@ module.exports = {
   protectionI18nOrgTitleRequired: 'نام سازمان را وارد کنید',
   synced: 'مطابقت داده شده',
   editUser: 'ویرایش کاربر',
-  daysLeft: 'روز باقی مانده',
+  myProfile: 'پروفایل من',
   // rest of the variables
 
   success: {

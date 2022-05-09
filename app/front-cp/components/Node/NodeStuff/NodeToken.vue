@@ -6,7 +6,7 @@
   >
     <v-text-field
       v-model.trim="innerToken"
-      color="light-blue darken-1"
+      color="primary"
       :error-messages="errors"
       :success="valid && token !== ''"
       type="text"

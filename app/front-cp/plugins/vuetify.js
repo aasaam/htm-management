@@ -16,7 +16,7 @@ export default function ({ app, store }) {
       },
       themes: {
         light: {
-          primary: colors.blue.darken2,
+          primary: '#536dfe',
           secondary: colors.grey.darken1,
           accent: colors.shades.black,
           error: colors.red,
@@ -26,7 +26,7 @@ export default function ({ app, store }) {
           background: colors.indigo.lighten5,
         },
         dark: {
-          primary: colors.blue.darken2,
+          primary: '#536dfe',
           secondary: colors.grey.darken1,
           accent: colors.shades.black,
           error: colors.red.accent3,

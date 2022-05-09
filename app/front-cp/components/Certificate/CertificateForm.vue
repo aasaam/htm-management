@@ -2,7 +2,7 @@
   <div class="mx-auto">
     <Snackbar />
     <v-card :elevation="$vuetify.theme.dark ? 9 : 8">
-      <v-card-title class="teal white--text pa-4">
+      <v-card-title class="teal accent-4 accent-4 white--text pa-4">
         {{ title }}
       </v-card-title>
       <div :class="$vuetify.breakpoint.sm ? 'pa-2' : 'pa-5'">
@@ -17,7 +17,7 @@
                 >
                   <v-text-field
                     v-model.trim="certificate.name"
-                    color="light-blue darken-1"
+                    color="primary"
                     :error-messages="errors"
                     :success="valid"
                     type="text"

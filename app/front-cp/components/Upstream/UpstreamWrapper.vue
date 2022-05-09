@@ -21,7 +21,7 @@
         color="white"
         slider-size="3"
         icons-and-text
-        active-class="teal darken-2"
+        active-class="teal accent-4 darken-2"
       >
         <v-tabs-slider color="amber darken-3"></v-tabs-slider>
 
@@ -48,7 +48,7 @@
                 >
                   <v-text-field
                     v-model.trim="upstream.name"
-                    color="light-blue darken-1"
+                    color="primary"
                     :error-messages="errors"
                     :success="valid"
                     type="text"

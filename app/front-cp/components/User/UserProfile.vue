@@ -4,9 +4,9 @@
     max-width="500"
     :elevation="$vuetify.theme.dark ? 9 : 8"
   >
-    <v-card-title class="teal white--text">
+    <v-card-title class="teal accent-4 white--text">
       <v-icon color="white" dark large left> mdi-account </v-icon>
-      {{ $t('welcome') }}
+      {{ $t('myProfile') }}
     </v-card-title>
 
     <v-card-text>

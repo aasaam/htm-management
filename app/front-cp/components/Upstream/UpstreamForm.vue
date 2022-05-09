@@ -39,7 +39,7 @@
                 >
                   <v-text-field
                     v-model.trim="server.server"
-                    color="light-blue darken-1"
+                    color="primary"
                     :error-messages="errors"
                     :success="valid"
                     type="text"
@@ -61,7 +61,7 @@
                 >
                   <v-text-field
                     v-model.trim="server.port"
-                    color="light-blue darken-1"
+                    color="primary"
                     type="number"
                     min="80"
                     :error-messages="errors"
@@ -79,7 +79,7 @@
                 <v-col cols="12" md="6">
                   <v-text-field
                     v-model.number="server.weight"
-                    color="light-blue darken-1"
+                    color="primary"
                     type="number"
                     min="1"
                     max="99"
@@ -93,7 +93,7 @@
                 <v-col cols="12" md="6">
                   <v-text-field
                     v-model.number="server.maxConnection"
-                    color="light-blue darken-1"
+                    color="primary"
                     type="number"
                     persistent-hint
                     min="0"
@@ -130,7 +130,7 @@
                 <v-col cols="12" md="6" lg="3">
                   <v-checkbox
                     v-model="server.backup"
-                    color="light-blue darken-1"
+                    color="primary"
                     :value="false"
                     type="checkbox"
                     :label="$t('backup')"
@@ -140,7 +140,7 @@
                 <v-col cols="12" md="6" lg="3">
                   <v-checkbox
                     v-model="server.down"
-                    color="light-blue darken-1"
+                    color="primary"
                     :value="false"
                     type="checkbox"
                     :label="$t('down')"

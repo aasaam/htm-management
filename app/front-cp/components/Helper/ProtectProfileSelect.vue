@@ -10,7 +10,7 @@
       item-text="name"
       item-value="id"
       return-object
-      color="blue-grey lighten-2"
+      color="primary"
       :label="$t('chooseProtectionProfile')"
       outlined
       :error-messages="errors"

@@ -11,7 +11,7 @@
 
       <v-card-text class="pb-12 mt-12">
         <v-row justify="center" align="center">
-          <v-col cols="12" md="8" lg="9">
+          <v-col cols="11" md="11" lg="10">
             <v-form
               novalidate="true"
               :disabled="isDisabled"

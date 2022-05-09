@@ -6,7 +6,7 @@
   >
     <v-text-field
       v-model.trim="innerValue"
-      color="light-blue darken-1"
+      color="primary"
       :error-messages="errors"
       :success="valid"
       type="text"

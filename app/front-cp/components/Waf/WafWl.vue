@@ -10,7 +10,7 @@
       label="Wl"
       :items="items"
       multiple
-      color="blue-grey lighten-2"
+      color="primary"
       outlined
       :error-messages="errors"
       :success="valid"

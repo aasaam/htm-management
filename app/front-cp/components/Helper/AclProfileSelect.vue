@@ -7,7 +7,7 @@
     <v-autocomplete
       :value="acl"
       :items="aclList"
-      color="blue-grey lighten-2"
+      color="primary"
       :label="$t('chooseAcl')"
       outlined
       item-text="name"

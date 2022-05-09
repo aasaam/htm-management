@@ -13,6 +13,7 @@
             icons-and-text
             slider-size="3"
             background-color="teal"
+            active-class="teal accent-4 darken-2"
           >
             <v-tabs-slider color="amber darken-3"></v-tabs-slider>
 

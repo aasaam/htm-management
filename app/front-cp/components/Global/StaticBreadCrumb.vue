@@ -7,6 +7,7 @@
             <v-breadcrumbs-item
               :to="localePath(item.to)"
               :disabled="item.disabled"
+              color="primary"
               :active-class="
                 item.to !== $route.path ? 'middle--text' : undefined
               "

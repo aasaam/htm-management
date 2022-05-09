@@ -8,7 +8,7 @@
       v-model="innerTarget"
       :label="$t('target')"
       :items="items"
-      color="blue-grey lighten-2"
+      color="primary"
       outlined
       dir="ltr"
       clearable

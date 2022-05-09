@@ -2,7 +2,10 @@
   <div class="mx-auto text-center justify-center">
     <Snackbar />
     <ValidationObserver ref="obs">
-      <v-card class="mx-auto rounded-lg" elevation="12">
+      <v-card
+        class="mx-auto rounded-lg"
+        :elevation="$vuetify.theme.dark ? 9 : 8"
+      >
         <v-card-title
           class="primary lighten-1 text-center justify-center white--text"
         >

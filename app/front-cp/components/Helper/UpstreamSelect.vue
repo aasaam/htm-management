@@ -13,7 +13,7 @@
       <v-autocomplete
         :value="upstream"
         :items="upstreamList"
-        color="blue-grey lighten-2"
+        color="primary"
         :label="$t('chooseUpstream')"
         outlined
         cache-items

@@ -44,7 +44,7 @@
                 >
                   <v-checkbox
                     v-model="agree"
-                    color="light-blue darken-1"
+                    color="primary"
                     :error-messages="errors"
                     :success="valid"
                     value="1"

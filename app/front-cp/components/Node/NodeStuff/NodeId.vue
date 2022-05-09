@@ -6,7 +6,7 @@
   >
     <v-text-field
       v-model.trim="innerNodeId"
-      color="light-blue darken-1"
+      color="primary"
       :error-messages="errors"
       :success="valid && nodeId !== ''"
       type="text"

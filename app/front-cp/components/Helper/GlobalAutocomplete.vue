@@ -7,7 +7,7 @@
     <v-autocomplete
       v-model="inner"
       :items="dataList"
-      color="blue-grey lighten-2"
+      color="primary"
       :multiple="multiple"
       :label="label"
       outlined

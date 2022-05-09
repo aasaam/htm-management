@@ -7,7 +7,7 @@
     <v-autocomplete
       :value="certificate"
       :items="certificateList"
-      color="blue-grey lighten-2"
+      color="primary"
       :label="$t('chooseCertificate')"
       outlined
       item-text="name"

@@ -2,7 +2,7 @@
   <div class="mx-auto">
     <Snackbar />
     <v-card :elevation="$vuetify.theme.dark ? 9 : 8">
-      <v-card-title class="teal white--text pa-4">
+      <v-card-title class="teal accent-4 white--text pa-4">
         {{ title }}
         <v-spacer></v-spacer>
         <v-btn color="warning" class="white--text" @click.stop="dialog = true">
@@ -31,7 +31,7 @@
                 >
                   <v-text-field
                     v-model.trim="inWaf.profileName"
-                    color="light-blue darken-1"
+                    color="primary"
                     :error-messages="errors"
                     :success="valid"
                     type="text"
@@ -60,7 +60,7 @@
                     >
                       <v-text-field
                         v-model.trim="rule.name"
-                        color="light-blue darken-1"
+                        color="primary"
                         :error-messages="errors"
                         :success="valid"
                         type="text"
@@ -78,7 +78,7 @@
                     >
                       <v-text-field
                         v-model="rule.rule"
-                        color="light-blue darken-1"
+                        color="primary"
                         :error-messages="errors"
                         :success="valid"
                         type="text"
@@ -105,7 +105,7 @@
                   <v-col cols="12" md="6" lg="4">
                     <v-text-field
                       v-model.trim="rule.description"
-                      color="light-blue darken-1"
+                      color="primary"
                       type="text"
                       outlined
                       :label="$t('description')"
@@ -117,6 +117,7 @@
                       small
                       dark
                       fab
+                      elevation="0"
                       color="success"
                       class="mt-1"
                       @click="addRow"
@@ -128,6 +129,7 @@
                       small
                       dark
                       fab
+                      elevation="0"
                       color="error"
                       class="ml-1 mt-1"
                       @click.native="deleteRow(index)"

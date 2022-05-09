@@ -4,7 +4,7 @@
       <v-card :elevation="$vuetify.theme.dark ? 9 : 8">
         <v-tabs
           v-model="tab"
-          background-color="teal font-weight-light"
+          background-color="teal accent-4 font-weight-light"
           centered
           dark
           color="white"

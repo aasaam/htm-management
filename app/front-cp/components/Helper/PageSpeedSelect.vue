@@ -7,7 +7,7 @@
     <v-autocomplete
       :value="pagespeed"
       :items="psList"
-      color="blue-grey lighten-2"
+      color="primary"
       :label="$t('choosePageSpeedProfile')"
       outlined
       :error-messages="errors"

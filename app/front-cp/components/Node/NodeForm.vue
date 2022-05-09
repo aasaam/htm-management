@@ -8,7 +8,7 @@
     />
 
     <v-card :elevation="$vuetify.theme.dark ? 9 : 8">
-      <v-card-title class="teal white--text pa-4">
+      <v-card-title class="teal accent-4 white--text pa-4">
         {{ title }}
       </v-card-title>
       <div :class="$vuetify.breakpoint.sm ? 'pa-2' : 'pa-5'">
@@ -27,7 +27,7 @@
               <v-col cols="12" md="6" lg="4">
                 <v-text-field
                   v-model.trim="nodes.port"
-                  color="light-blue darken-1"
+                  color="primary"
                   type="number"
                   min="80"
                   max="65535"

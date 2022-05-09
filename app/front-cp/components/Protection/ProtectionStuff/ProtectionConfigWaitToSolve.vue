@@ -1,7 +1,7 @@
 <template>
   <v-text-field
     v-model.number="cWait"
-    color="light-blue darken-1"
+    color="primary"
     type="number"
     min="2"
     max="180"

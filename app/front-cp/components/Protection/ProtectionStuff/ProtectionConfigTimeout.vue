@@ -1,7 +1,7 @@
 <template>
   <v-text-field
     v-model.number="cTimeout"
-    color="light-blue darken-1"
+    color="primary"
     type="number"
     min="300"
     max="1800"

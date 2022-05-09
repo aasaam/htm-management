@@ -2,7 +2,7 @@
   <div>
     <Snackbar />
     <v-card :elevation="$vuetify.theme.dark ? 9 : 8">
-      <v-card-title class="teal white--text pa-4">
+      <v-card-title class="teal accent-4 white--text pa-4">
         {{ $t(`${generalAction.title}`) }}
         <v-spacer />
         <v-btn

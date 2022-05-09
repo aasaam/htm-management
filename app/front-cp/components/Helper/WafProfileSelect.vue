@@ -7,7 +7,7 @@
     <v-autocomplete
       :value="waf"
       :items="wafList"
-      color="blue-grey lighten-2"
+      color="primary"
       :label="$t('chooseWafProfile')"
       item-text="name"
       item-value="id"

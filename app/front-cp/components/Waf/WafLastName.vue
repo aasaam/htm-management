@@ -5,7 +5,7 @@
     item-value="value"
     :label="$t('name')"
     :items="items"
-    color="blue-grey lighten-2"
+    color="primary"
     outlined
   >
   </v-autocomplete>

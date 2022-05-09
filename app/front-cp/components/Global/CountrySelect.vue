@@ -4,6 +4,7 @@
       v-model="innercountry"
       :items="items"
       outlined
+      color="primary"
       :error-messages="errors"
       :success="valid"
       item-text="name"

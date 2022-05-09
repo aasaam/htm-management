@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="syncDialog" scrollable max-width="1260" persistent>
-    <v-card>
-      <v-card-title dark class="grey darken-3 headline white--text">
+    <v-card :elevation="$vuetify.theme.dark ? 9 : 8">
+      <v-card-title dark class="teal darken-1 white--text pa-4">
         {{ $t('ruleGenerator') }}
         <v-spacer></v-spacer>
         <!-- <v-btn large @click="reset">

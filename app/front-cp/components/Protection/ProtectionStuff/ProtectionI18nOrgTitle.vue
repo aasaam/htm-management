@@ -31,7 +31,7 @@
             <v-col cols="10">
               <v-text-field
                 v-model.trim="i.title"
-                color="light-blue darken-1"
+                color="primary"
                 outlined
                 :dir="i.iso === 'en' ? 'ltr' : 'rtl'"
                 :rules="[(v) => !!v || 'Item is required']"

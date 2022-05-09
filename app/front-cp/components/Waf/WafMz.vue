@@ -10,7 +10,7 @@
       item-value="value"
       :label="$t('matchzone')"
       :items="items"
-      color="blue-grey lighten-2"
+      color="primary"
       outlined
       clearable
       :error-messages="errors"

@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="innerDialog" max-width="90%" @click:outside="close">
     <v-card>
-      <v-card-title dark class="teal darken-3 white--text pa-4">
+      <v-card-title dark class="teal accent-4 darken-3 white--text pa-4">
         <span class="headline">{{ title }}</span>
         <v-spacer></v-spacer>
         <v-tooltip bottom>

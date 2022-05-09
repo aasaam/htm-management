@@ -37,7 +37,7 @@ module.exports = {
   totpSetting: 'TOTP Config',
   synced: 'Synced',
   otp: 'OTP',
-  daysLeft: 'Days left',
+  myProfile: 'My Profile',
 
   // Special Errors
   protectionI18nOrgTitleRequired: 'Protection Organization Title is required.',

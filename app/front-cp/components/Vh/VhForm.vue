@@ -45,7 +45,7 @@
               >
                 <v-text-field
                   v-model.trim="vh.orgTitle"
-                  color="light-blue darken-1"
+                  color="primary"
                   :error-messages="errors"
                   :success="valid"
                   type="text"
@@ -62,7 +62,7 @@
               >
                 <v-text-field
                   v-model.trim="vh.orgIcon"
-                  color="light-blue darken-1"
+                  color="primary"
                   :error-messages="errors"
                   :success="valid"
                   type="text"
@@ -85,7 +85,7 @@
             <v-col cols="12" md="6" lg="4">
               <v-text-field
                 v-model.number="vh.keepAliveRq"
-                color="light-blue darken-1"
+                color="primary"
                 type="number"
                 min="0"
                 max="1000000"
@@ -98,7 +98,7 @@
             <v-col cols="12" md="6" lg="4">
               <v-text-field
                 v-model.number="vh.keepAliveTimeout"
-                color="light-blue darken-1"
+                color="primary"
                 type="number"
                 min="1"
                 max="3600"
@@ -111,7 +111,7 @@
             <v-col cols="12" md="6" lg="4">
               <v-text-field
                 v-model.number="vh.requestPoolSize"
-                color="light-blue darken-1"
+                color="primary"
                 type="number"
                 min="1"
                 outlined
@@ -124,7 +124,7 @@
             <v-col cols="12" md="6" lg="4">
               <v-text-field
                 v-model.number="vh.clientHeaderTimeout"
-                color="light-blue darken-1"
+                color="primary"
                 type="number"
                 min="1"
                 max="3600"
@@ -137,7 +137,7 @@
             <v-col cols="12" md="6" lg="4">
               <v-text-field
                 v-model.number="vh.clientHeaderBufferSize"
-                color="light-blue darken-1"
+                color="primary"
                 type="number"
                 min="1"
                 outlined
@@ -150,7 +150,7 @@
             <v-col cols="12" md="6">
               <v-text-field
                 v-model.number="vh.largeClientHeaderBufferSize"
-                color="light-blue darken-1"
+                color="primary"
                 type="number"
                 min="1"
                 persistent-hint
@@ -162,7 +162,7 @@
             <v-col cols="12" md="6">
               <v-text-field
                 v-model.number="vh.largeClientHeaderBufferNumber"
-                color="light-blue darken-1"
+                color="primary"
                 type="number"
                 min="1"
                 outlined
@@ -214,7 +214,7 @@
               >
                 <v-text-field
                   v-model="loc.path"
-                  color="light-blue darken-1"
+                  color="primary"
                   :error-messages="errors"
                   :success="valid"
                   type="text"
@@ -270,7 +270,7 @@
                 >
                   <v-text-field
                     v-model="loc.redirectToUrl"
-                    color="light-blue darken-1"
+                    color="primary"
                     :error-messages="errors"
                     :success="valid"
                     type="text"
@@ -309,7 +309,7 @@
               <v-col cols="12" md="6" lg="3">
                 <v-text-field
                   v-model.number="loc.clientMaxBodySize"
-                  color="light-blue darken-1"
+                  color="primary"
                   type="number"
                   min="1"
                   persistent-hint
@@ -321,7 +321,7 @@
               <v-col cols="12" md="6" lg="3">
                 <v-text-field
                   v-model.number="loc.clientBodyBufferSize"
-                  color="light-blue darken-1"
+                  color="primary"
                   type="number"
                   min="10"
                   max="100"
@@ -371,7 +371,7 @@
                   >
                     <v-text-field
                       v-model.trim="he.key"
-                      color="light-blue darken-1"
+                      color="primary"
                       :error-messages="errors"
                       :success="valid"
                       type="text"
@@ -388,7 +388,7 @@
                   >
                     <v-text-field
                       v-model.trim="he.value"
-                      color="light-blue darken-1"
+                      color="primary"
                       :error-messages="errors"
                       :success="valid"
                       type="text"
@@ -436,7 +436,7 @@
                   >
                     <v-text-field
                       v-model.trim="he.key"
-                      color="light-blue darken-1"
+                      color="primary"
                       :error-messages="errors"
                       :success="valid"
                       type="text"
@@ -453,7 +453,7 @@
                   >
                     <v-text-field
                       v-model.trim="he.value"
-                      color="light-blue darken-1"
+                      color="primary"
                       :error-messages="errors"
                       :success="valid"
                       type="text"
