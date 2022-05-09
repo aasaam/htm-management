@@ -1,9 +1,9 @@
 <template>
   <v-container fluid>
     <Snackbar />
-    <v-row justify="center" align="center">
+    <v-row justify="center" align="center" class="pt-4">
       <v-col cols="12" md="10" lg="9">
-        <v-card :elevation="$vuetify.theme.dark ? 9 : 8">
+        <v-card :elevation="$vuetify.theme.dark ? 9 : 8" height="400">
           <v-tabs
             v-model="tab"
             centered
@@ -23,7 +23,7 @@
 
             <v-tab href="#tab-2">
               {{ $t('restore') }}
-              <v-icon>mdi-cloud-upload</v-icon>
+              <v-icon>mdi-restore</v-icon>
             </v-tab>
           </v-tabs>
 
@@ -32,14 +32,15 @@
             <v-tab-item :value="'tab-1'">
               <v-card flat class="pa-3 mx-auto text-center justify-center">
                 <v-card-text>
-                  <p class="body-1">
+                  <p class="body-1 pb-4 block mt-4">
                     {{ $t('backupDoc1') }}
                   </p>
                   <v-btn
                     :loading="loading3"
                     :disabled="loading3"
-                    color="blue-grey"
+                    x-large
                     class="ma-2 white--text"
+                    color="primary"
                     @click="backup()"
                   >
                     {{ $t('startBackup') }}
@@ -73,7 +74,7 @@
               <ValidationObserver ref="obs">
                 <v-card flat class="pa-3 mx-auto text-center justify-center">
                   <v-card-text class="mx-auto">
-                    <p class="body-1">
+                    <p class="body-1 pb-4 block mt-4">
                       {{ $t('restoreDoc2') }}
                       <strong dir="ltr">7-Zip</strong>
                     </p>

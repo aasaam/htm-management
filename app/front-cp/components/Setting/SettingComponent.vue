@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" align="center">
+  <v-row justify="center" align="center" class="pt-4">
     <Snackbar />
     <v-col cols="12" lg="11">
       <v-alert text color="info">

@@ -132,7 +132,7 @@ export default {
           ],
         },
         {
-          action: 'mdi-toolbox-outline',
+          action: 'mdi-shield-outline',
           title: this.$t('certificateManagement'),
           active: this.$route.path.includes('certificate'),
           items: [
@@ -149,9 +149,8 @@ export default {
             },
           ],
         },
-
         {
-          action: 'mdi-lock',
+          action: 'mdi-lock-outline',
           title: this.$t('protectionManagement'),
           active: this.$route.path.includes('protection'),
           items: [
@@ -169,7 +168,7 @@ export default {
           ],
         },
         {
-          action: 'mdi-server-security',
+          action: 'mdi-check-network-outline',
           title: this.$t('upstreamManagement'),
           active: this.$route.path.includes('upstream'),
           items: [
@@ -187,7 +186,7 @@ export default {
           ],
         },
         {
-          action: 'mdi-server-network',
+          action: 'mdi-view-agenda-outline',
           title: this.$t('vhManagement'),
           active: this.$route.path.includes('virtualhost'),
           items: [
@@ -205,7 +204,7 @@ export default {
           ],
         },
         {
-          action: 'mdi-account',
+          action: 'mdi-account-outline',
           title: this.$t('userManagement'),
           active: this.$route.path.includes('user'),
           items: [

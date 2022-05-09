@@ -62,6 +62,7 @@
           dense
           clearable
           type="number"
+          min="0"
           outlined
           :label="$t(`${f.value}`)"
           @input="sendFilter"

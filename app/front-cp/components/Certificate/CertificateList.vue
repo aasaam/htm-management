@@ -69,8 +69,7 @@
           </v-chip>
         </template>
         <template v-slot:[`item.notAfter`]="{ item }">
-          {{ item.notAfter }} - (
-          {{ formatDateTime({ value: item.notAfter }) }})
+          {{ item.notAfter }} ( {{ formatDateTime({ value: item.notAfter }) }})
           <!-- calc how many days left -->
           <v-chip small label class="ml-1 mr-1">
             {{ diffDateTime({ value: item.notAfter }) }}

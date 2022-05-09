@@ -10,7 +10,7 @@
       <v-list-item-avatar size="48">
         <img src="_icons/logo.svg" :alt="$t('projectDescription')" />
       </v-list-item-avatar>
-      <div class="pt-6 font-weight-bold">
+      <div class="pt-6">
         {{ $t('projectDescription') }}
       </div>
     </v-sheet>
