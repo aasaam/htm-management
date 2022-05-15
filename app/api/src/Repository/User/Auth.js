@@ -48,6 +48,18 @@ class Authentication {
 
     return user;
   }
+
+  /**
+   *
+   * @param {*} id
+   */
+  async lastLogin(id) {
+    const user = await this.UserModel.findById(id);
+    if (user) {
+      user.lastLogin = Date.now();
+    }
+    await user.save();
+  }
 }
 
 module.exports = Authentication;

@@ -41,6 +41,11 @@ const listInfo = {
           ],
         },
         {
+          text: this.$t('lastLogin'),
+          sortable: false,
+          value: 'lastLogin',
+        },
+        {
           text: this.$t('active'),
           sortable: false,
           value: 'active',

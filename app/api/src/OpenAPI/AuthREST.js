@@ -173,12 +173,16 @@ class AuthREST {
             },
             refreshTokenTTL,
           );
+
+          await AuthRepository.lastLogin(user.id);
+
           reply.setCookie(Config.ASM_AUTH_REFRESH_COOKIE, refreshToken, {
             path: refreshURL,
             sameSite: 'strict',
             httpOnly: true,
             expires: refreshTime,
           });
+
           return {
             id: user.id,
             expires: tokenTime,

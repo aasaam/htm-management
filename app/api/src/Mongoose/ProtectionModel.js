@@ -136,7 +136,7 @@ const protectionSchema = new Schema(
       type: Schema.Types.String,
       required: false,
       default() {
-        return authenticator.generateSecret(12);
+        return authenticator.generateSecret();
       },
     },
 

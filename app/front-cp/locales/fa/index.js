@@ -52,6 +52,8 @@ module.exports = {
   synced: 'مطابقت داده شده',
   editUser: 'ویرایش کاربر',
   myProfile: 'پروفایل من',
+  lastLogin: 'آخرین ورود',
+  notLoggedIn: 'هنوز وارد نشده است.',
   // rest of the variables
 
   success: {

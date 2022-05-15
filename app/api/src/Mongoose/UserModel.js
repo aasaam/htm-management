@@ -34,21 +34,30 @@ const userSchema = new Schema(
       default: [UserRoles.constants.REGISTERED],
       enum: UserRoles.list,
     },
+
     active: {
       type: Boolean,
       required: true,
       default: true,
     },
+
     deleted: {
       type: Boolean,
       default: false,
     },
+
     otpSecret: {
       type: Schema.Types.String,
       required: false,
       default() {
         return authenticator.generateSecret(12);
       },
+    },
+
+    lastLogin: {
+      type: Date,
+      default: null,
+      nullable: true,
     },
   },
   {

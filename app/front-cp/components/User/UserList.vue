@@ -75,6 +75,14 @@
             </span>
           </v-chip>
         </template>
+        <template v-slot:[`item.lastLogin`]="{ item }">
+          <span v-if="item.lastLogin">
+            {{ formatDateTime({ value: item.lastLogin }) }}
+          </span>
+          <span v-else>
+            {{ $t('notLoggedIn') }}
+          </span>
+        </template>
         <template v-slot:[`item.active`]="{ item }">
           <v-chip
             v-if="item.active == true"
@@ -140,12 +148,13 @@
 </template>
 
 <script>
+import dateFormatter from '@/mixin/dateFormatter';
 import listQueryBuilder from '@/mixin/listQueryBuilder';
 const { to } = require('await-to-js');
 
 export default {
   name: 'UserTable',
-  mixins: [listQueryBuilder],
+  mixins: [listQueryBuilder, dateFormatter],
   props: {
     generalAction: {
       type: Object,

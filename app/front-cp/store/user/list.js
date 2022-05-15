@@ -25,7 +25,7 @@ export const actions = {
                 limit: $limit,
               }
             ) {
-              docs { _id email roles active }
+              docs { _id email roles active lastLogin }
               limit totalPages totalDocs
             }
           }`,

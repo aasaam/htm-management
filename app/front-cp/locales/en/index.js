@@ -38,6 +38,8 @@ module.exports = {
   synced: 'Synced',
   otp: 'OTP',
   myProfile: 'My Profile',
+  lastLogin: 'Last Login',
+  notLoggedIn: 'Not Logged In',
 
   // Special Errors
   protectionI18nOrgTitleRequired: 'Protection Organization Title is required.',

@@ -106,6 +106,7 @@ type OutputUserListDocs {
   email: EmailAddress
   roles: [String]
   active: Boolean
+  lastLogin: DateTime
 }
 
 type OutputUserList {
