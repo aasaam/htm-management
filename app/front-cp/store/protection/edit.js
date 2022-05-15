@@ -33,6 +33,7 @@ export const actions = {
             $ldapBaseDn: String
             $ldapFilter: String
             $ldapAttributes: [String]
+            $totpSecret: String
             $deleted: Boolean
             ) {
             EditProtection(
@@ -58,6 +59,7 @@ export const actions = {
                 ldapBaseDn: $ldapBaseDn
                 ldapFilter: $ldapFilter
                 ldapAttributes: $ldapAttributes
+                totpSecret: $totpSecret
                 deleted: $deleted
               }
             )

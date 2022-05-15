@@ -27,7 +27,10 @@
     <!-- editor  -->
     <v-col v-if="isHidden" cols="12" lg="11">
       <ValidationObserver ref="obs">
-        <v-card :class="$vuetify.breakpoint.sm ? 'pa-2' : 'pa-5'">
+        <v-card
+          :class="$vuetify.breakpoint.sm ? 'pa-2' : 'pa-5'"
+          :elevation="$vuetify.theme.dark ? 9 : 8"
+        >
           <v-form novalidate="true" :disabled="isDisabled">
             <v-row align="start" justify="start">
               <v-col cols="12">

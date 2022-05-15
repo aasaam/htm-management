@@ -31,6 +31,7 @@ export const actions = {
             $ldapRoPassword: String
             $ldapBaseDn: String
             $ldapFilter: String
+            $totpSecret: String
             $ldapAttributes: [String]
             ) {
             AddProtection(
@@ -49,6 +50,7 @@ export const actions = {
                 protectionConfigWaitToSolve: $protectionConfigWaitToSolve
                 challenge: $challenge
                 captchaDifficulty: $captchaDifficulty
+                totpSecret: $totpSecret
                 ldapUri: $ldapUri
                 ldapRoUsername: $ldapRoUsername
                 ldapRoPassword: $ldapRoPassword

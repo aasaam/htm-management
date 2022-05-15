@@ -135,9 +135,6 @@ const protectionSchema = new Schema(
     totpSecret: {
       type: Schema.Types.String,
       required: false,
-      default() {
-        return authenticator.generateSecret();
-      },
     },
 
     // Challenge -> LDAP properties
@@ -195,7 +192,7 @@ protectionSchema.methods = {
    * @returns {void}
    */
   setNewOtpSecret() {
-    this.totpSecret = authenticator.generateSecret(12);
+    this.totpSecret = authenticator.generateSecret();
     return this.totpSecret;
   },
 };

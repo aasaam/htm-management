@@ -138,7 +138,7 @@
               </v-col>
 
               <v-col v-if="protection.challenge == 'totp'" cols="12">
-                <TotpCmp />
+                <TotpCmp @sendOtpSecret="receiveSecret" />
               </v-col>
 
               <!-- LDAP  -->
@@ -301,6 +301,9 @@ export default {
     },
     ldapAttrMethod(v) {
       this.$set(this.protection, 'ldapAttributes', v);
+    },
+    receiveSecret(v) {
+      this.$set(this.protection, 'totpSecret', v);
     },
     async addProfile() {
       const validity = await this.$refs.obs.validate();

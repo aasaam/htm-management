@@ -127,7 +127,7 @@ export default {
         this.isDisabled = false;
       }
       if (secret) {
-        // this.$emit('otpSecret', secret);
+        this.$emit('sendOtpSecret', secret);
         this.setNewOtpSecret(secret);
       }
     },

@@ -331,6 +331,7 @@ input InputProtection {
   ldapBaseDn: String
   ldapFilter: String
   ldapAttributes: [String]
+  totpSecret: String
   deleted: Boolean
 }
 

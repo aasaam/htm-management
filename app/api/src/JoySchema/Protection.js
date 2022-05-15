@@ -119,6 +119,13 @@ const base = Joi.object().keys({
       then: Joi.required(),
     }),
 
+  totpSecret: Joi.string()
+    .when('challenge', {
+      is: ['totp'],
+      then: Joi.required(),
+    })
+    .allow(null, ''),
+
   ldapUri: Joi.string()
     .uri()
     .when('challenge', {
