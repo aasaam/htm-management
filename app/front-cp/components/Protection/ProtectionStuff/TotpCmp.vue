@@ -95,7 +95,7 @@ export default {
       };
 
       QRCode.toDataURL(
-        `otpauth://totp/${uri.title}:${uri.host}?secret=${uri.secret}&issuer=${uri.title}`,
+        `otpauth://totp/${uri.title}:${uri.host}?secret=${uri.otpSecret}&issuer=${uri.title}`,
       )
         .then((url) => {
           this.imagePath = url;
