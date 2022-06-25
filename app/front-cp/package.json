@@ -17,7 +17,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13",
     "@nuxtjs/i18n": "^7.2",
-    "aasaam-vuetify-datetime": "0.0.1",
+    "aasaam-vuetify-datetime": "0.0.2",
     "core-js": "^3.15",
     "nuxt": "^2.15.8",
     "prismjs": "^1.27",
