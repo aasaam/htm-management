@@ -1,5 +1,4 @@
 const mercurius = require('mercurius');
-const altair = require('altair-fastify-plugin').default;
 const { makeExecutableSchema } = require('@graphql-tools/schema');
 
 class GraphQL {
@@ -66,13 +65,13 @@ class GraphQL {
     // @ts-ignore
     fastify.register(mercurius, config);
 
-    const altairConfig = {
-      baseURL: `${fastify.baseURL('/graphql/docs')}/`,
-      path: fastify.baseURL('/graphql/docs'),
-      endpointURL: fastify.baseURL('/graphql/graphql'),
-    };
+    // const altairConfig = {
+    //   baseURL: `${fastify.baseURL('/graphql/docs')}/`,
+    //   path: fastify.baseURL('/graphql/docs'),
+    //   endpointURL: fastify.baseURL('/graphql/graphql'),
+    // };
 
-    fastify.register(altair, altairConfig);
+    // fastify.register(altair, altairConfig);
   }
 }
 

@@ -4,3 +4,5 @@ tmp/
 
 addon/
 
+package-lock.json
+
