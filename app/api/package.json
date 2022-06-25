@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "@aasaam/information": "0",
-    "@fastify/swagger": "^6",
+    "@fastify/swagger": "^7",
     "@graphql-tools/schema": "^8",
     "argon2": "^0",
     "async": "^3",
