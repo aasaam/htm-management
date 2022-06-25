@@ -39,7 +39,7 @@ const ConfigSchema = {
     ASM_FETCH_TIMEOUT: {
       type: 'number',
       description: 'Fetch timeout in seconds',
-      default: 10000,
+      default: 20000,
     },
 
     ASM_DEFAULT_ADMIN_EMAIL: {

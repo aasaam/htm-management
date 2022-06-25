@@ -15,6 +15,7 @@ services:
       - ./root.pem:/app/api/conf/root.pem
     environment:
       ASM_PUBLIC_APP_TEST: "false"
+      ASM_FETCH_TIMEOUT: ${ASM_FETCH_TIMEOUT:-20000}
       ASM_AUTH_HMAC_SECRET: ${ASM_AUTH_HMAC_SECRET:-}
       ASM_PUBLIC_APP_NS: ${ASM_PUBLIC_APP_NS:-htm}
       ASM_AUTH_COOKIE: ${ASM_AUTH_COOKIE:-htm-auth-token}
