@@ -75,7 +75,7 @@
     "env-schema": "^4",
     "fastify": "^3",
     "@fastify/cookie": "^6",
-    "@fastify/rate-limit": "^6",
+    "@fastify/rate-limit": "^7",
     "form-data": "^4.0.0",
     "graphql-fields-list": "^2",
     "graphql-scalars": "^1",
