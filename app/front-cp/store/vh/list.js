@@ -1,3 +1,27 @@
+export const state = () => ({
+  virtualList: [],
+});
+
+export const mutations = {
+  SET_VH_LIST(state, data) {
+    state.virtualList = [];
+    state.virtualList = data;
+  },
+};
+
+export const getters = {
+  GET_VH_LIST(state) {
+    const list = state.virtualList.map((item) => {
+      return {
+        name: item.name,
+        id: item._id,
+      };
+    });
+
+    return list;
+  },
+};
+
 export const actions = {
   // ***************************************
   async listVh({ commit }, inputData) {
@@ -33,6 +57,7 @@ export const actions = {
       );
 
       const result = data.data.ListVh;
+      commit('SET_VH_LIST', result.docs);
 
       if (data.errors) {
         throw new Error(data.errors['0'].message);
@@ -86,6 +111,96 @@ export const actions = {
 
       if (result) {
         return result;
+      }
+    } catch (error) {
+      const { data } = error.response;
+      commit(
+        'SET_NOTIFICATION',
+        {
+          show: true,
+          color: 'red',
+          message: data.errors,
+          status: 'error',
+        },
+        { root: true },
+      );
+      throw new Error(data);
+    }
+  },
+  // ***************************************
+  async findVhByDomain({ commit }, domain) {
+    try {
+      const { data } = await this.$axios.post(
+        `${window.applicationBaseURL}api/graphql/graphql`,
+        {
+          query: `query ($domain: String!) {
+            FindVh(
+                data: {
+                  domain: $domain
+                }
+              ) { count sample }
+            }`,
+          variables: {
+            domain,
+          },
+        },
+      );
+
+      const result = data.data.FindVh;
+
+      if (result) {
+        return result;
+      }
+    } catch (error) {
+      const { data } = error.response;
+      commit(
+        'SET_NOTIFICATION',
+        {
+          show: true,
+          color: 'red',
+          message: data.errors,
+          status: 'error',
+        },
+        { root: true },
+      );
+      throw new Error(data);
+    }
+  },
+  // ***************************************
+  async bulkUpdateCert({ commit }, inputData) {
+    try {
+      const { data } = await this.$axios.post(
+        `${window.applicationBaseURL}api/graphql/graphql`,
+        {
+          query: `query ($domain: String!, $certificate: String!) {
+            BulkUpdateCert(
+                data: {
+                  domain: $domain
+                  certificate: $certificate
+                }
+              )
+            }`,
+          variables: {
+            domain: inputData.domain,
+            certificate: inputData.certificate,
+          },
+        },
+      );
+
+      const result = data.data.BulkUpdateCert;
+
+      if (result) {
+        commit(
+          'SET_NOTIFICATION',
+          {
+            show: true,
+            color: 'green',
+            message: 'EDITED',
+            status: 'success',
+          },
+          { root: true },
+        );
+        return true;
       }
     } catch (error) {
       const { data } = error.response;

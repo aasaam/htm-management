@@ -21,6 +21,8 @@ const SingleWaf = require('./Waf/SingleWaf');
 const ListWaf = require('./Waf/ListWaf');
 const ListVh = require('./Vh/ListVh');
 const SingleVh = require('./Vh/SingleVh');
+const FindVh = require('./Vh/FindVh');
+const BulkUpdateCert = require('./Vh/BulkUpdateCert');
 const Setting = require('./Setting/Setting');
 const ConfigReader = require('./Setting/ConfigReader');
 const Backup = require('./Backup');
@@ -50,6 +52,8 @@ module.exports = {
   ListWaf,
   ListVh,
   SingleVh,
+  FindVh,
+  BulkUpdateCert,
   Setting,
   Backup,
   Restore,

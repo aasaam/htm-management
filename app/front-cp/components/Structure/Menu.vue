@@ -201,6 +201,11 @@ export default {
               link: '/virtualhost/list/',
               canSee: true,
             },
+            {
+              title: this.$t('vhBulkUpdate'),
+              link: '/virtualhost/bulk-update/',
+              canSee: true,
+            },
           ],
         },
         {

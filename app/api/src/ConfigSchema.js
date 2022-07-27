@@ -194,7 +194,6 @@ const ConfigSchema = {
     ASM_ZIP_PASSWORD: {
       type: 'string',
       description: 'Password for backup zip file.',
-      default: 'drink_coffee',
     },
 
     ASM_SMTP_SENDER: {

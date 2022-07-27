@@ -8,5 +8,6 @@
     "gomplates",
     "okbtn",
     "tmpl"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

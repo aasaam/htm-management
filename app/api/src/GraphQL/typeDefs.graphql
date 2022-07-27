@@ -573,6 +573,20 @@ type OutputSingleVh {
   deleted: Boolean
 }
 
+input InputFindVh {
+  domain: String!
+}
+
+type OutputFindVh {
+  count: Int
+  sample: [JSONObject]
+}
+
+input BulkCert {
+  domain: String!
+  certificate: String!
+}
+
 # ************* setting **********
 input InputSetting {
   name: String!
@@ -628,6 +642,8 @@ type Query {
   ListWaf(args: InputGlobalList): OutputListWaf
   ListVh(args: InputGlobalList): OutputListServer
   SingleVh(data: InputGlobalId): OutputSingleVh
+  FindVh(data: InputFindVh): OutputFindVh
+  BulkUpdateCert(data: BulkCert): Int
   Setting(data: InputSetting): String
   RenderConfig(data: TemplateConf): String
   Backup: String

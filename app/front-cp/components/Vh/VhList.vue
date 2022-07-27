@@ -233,7 +233,7 @@ export default {
     },
 
     async forViewer(detail) {
-      console.log(detail);
+      // console.log(detail);
       const id = detail._id;
       const result = await this.$store.dispatch('vh/list/singleVh', id);
       if (result) {

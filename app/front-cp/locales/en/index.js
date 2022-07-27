@@ -183,6 +183,17 @@ module.exports = {
     ' Sets a timeout during which an idle keepalive connection to an upstream server will stay open.',
 
   // ## Virtualhost
+  search: 'Search',
+  chooseVh: 'Choose Virtual Host',
+  vhFound: 'Virtual Host Found',
+  vhFoundSample: 'See five first examples of {count} items.',
+  notFoundPhrase: 'Nothing matched with "{phrase}"',
+  vhBulkUpdate: 'Bulk Update',
+  domainName: 'Domain Name',
+  agreementToUpdate:
+    'Do you agree to update the following virtual hosts certificate?',
+  bulkUpdateWarning:
+    'Dear user , You can use bulk update only for standard virtual host. If you want to bulk update advanced virtual host, please do it manually. This feature DOES NOT SUPPORT advanced virtual host.',
   chooseWafProfile: 'Choose WAF Profile',
   saveAdvance: 'Save advanced',
   location: 'Location',
