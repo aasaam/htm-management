@@ -9,11 +9,17 @@ describe(__filename.replace(__dirname, ''), () => {
       ASM_PUBLIC_NUM1: '1000',
       ASM_NUM2: '1001',
       NOT_CONVENTION: 1,
+      ASM_ZIP_PASSWORD: 'coffee',
     };
 
     const schema = {
       type: 'object',
-      required: ['ASM_PUBLIC_NUM1', 'ASM_NUM2', 'ASM_NUM_DEFAULT'],
+      required: [
+        'ASM_PUBLIC_NUM1',
+        'ASM_NUM2',
+        'ASM_NUM_DEFAULT',
+        'ASM_ZIP_PASSWORD',
+      ],
       properties: {
         ASM_PUBLIC_NUM1: {
           type: 'number',
@@ -26,6 +32,10 @@ describe(__filename.replace(__dirname, ''), () => {
         ASM_NUM_DEFAULT: {
           type: 'number',
           default: 4000,
+        },
+        ASM_ZIP_PASSWORD: {
+          type: 'string',
+          default: 'coffee',
         },
       },
     };
@@ -44,7 +54,9 @@ describe(__filename.replace(__dirname, ''), () => {
   });
 
   it('ConfigSchema with defaults', async () => {
-    const appConfig = new Config(ConfigSchema, {});
+    const appConfig = new Config(ConfigSchema, {
+      ASM_ZIP_PASSWORD: 'coffee',
+    });
     expect(appConfig.getAll()).toBeTruthy();
   });
 });
