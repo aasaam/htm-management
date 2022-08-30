@@ -40,7 +40,7 @@
     "testEnvironment": "node"
   },
   "devDependencies": {
-    "@faker-js/faker": "^6.0.0-beta.0",
+    "@faker-js/faker": "^7.5.0",
     "@jest/test-sequencer": "^28",
     "@types/ioredis": "^4",
     "@types/jest": "^27",
