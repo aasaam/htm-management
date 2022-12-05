@@ -72,7 +72,7 @@
     "chalk": "^4",
     "commander": "^9",
     "cookie": "^0",
-    "env-schema": "^4",
+    "env-schema": "^5",
     "fastify": "^3",
     "@fastify/cookie": "^6",
     "@fastify/rate-limit": "^6",
